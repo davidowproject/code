@@ -2,14 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="format-detection" content="telephone=no" />
+		<!--<meta name="format-detection" content="telephone=no" />-->
 		<meta name="viewport" content="width=device-width, user-scalable=no,
 			initial-scale=1, maximum-scale=1, minimum-scale=1" />
 		<link rel="stylesheet" href="css/app.css" />
 		<title>Beacon Finder</title>
-		<script>
-		if (window.hyper) { console.log = hyper.log; }
-		</script>
 	</head>
 	<body>
 
@@ -55,8 +52,6 @@
 		evothings.touch.onTap(
 			$('#id-screen-home-button-range-beacons')[0],
 			app.startRangingBeacons);
-
-
 		evothings.touch.onTap(
 			$('#id-screen-range-beacons div.style-button-back')[0],
 			app.stopRangingBeacons);

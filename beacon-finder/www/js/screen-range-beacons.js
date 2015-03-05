@@ -26,7 +26,7 @@
 			$.each(beaconInfo.beacons, function(key, beacon)
 			{
 				var element = $(createBeaconHTML(beacon));
-				$('#id-screen-range-beacons .style-item-list').append("hello world");
+				$('#id-screen-range-beacons .style-item-list').append("hello world<br/>");
 			});
 		};
 
