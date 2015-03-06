@@ -1,5 +1,9 @@
+//this is the app that our project runs on
+
 var app = angular.module("app", ['ngRoute']);
 
+
+//here we configure the app to use the routeProvider
 app.config(function($routeProvider){
 
 	$routeProvider
