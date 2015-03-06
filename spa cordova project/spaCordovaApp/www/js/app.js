@@ -1,3 +1,11 @@
+/*
+var data = $.ajax({
+  dataType: "json",
+  url: "js/data.json",
+  success: success
+});
+*/
+
 var app = angular.module("app", ['ngRoute']);
 
 app.config(function($routeProvider){
@@ -22,12 +30,11 @@ app.config(function($routeProvider){
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
-	$log.info($location.path());
 
 }]);
 
 app.controller('secondController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
-	$log.info($location.path());
+	
 
 }]);
