@@ -1,11 +1,3 @@
-/*
-var data = $.ajax({
-  dataType: "json",
-  url: "js/data.json",
-  success: success
-});
-*/
-
 var app = angular.module("app", ['ngRoute']);
 
 app.config(function($routeProvider){
@@ -19,10 +11,25 @@ app.config(function($routeProvider){
 
 	})
 
-	.when('/second', {
+	.when('/explore', {
 
-		templateUrl: './views/second.html',
-		controller: 'secondController'
+		templateUrl: './views/explore.html',
+		controller: 'mainController'
+
+	})
+
+	.when('/gallery', {
+
+		templateUrl: './views/gallery.html',
+		controller: 'mainController'
+
+	})
+
+
+	.when('/map', {
+
+		templateUrl: './views/map.html',
+		controller: 'mainController'
 
 	})
 
@@ -30,11 +37,7 @@ app.config(function($routeProvider){
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
+	$log.info($location.path());
 
 }]);
 
-app.controller('secondController', ['$scope', '$location', '$log', function($scope, $location, $log){
-
-	
-
-}]);
