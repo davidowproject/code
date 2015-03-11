@@ -33,6 +33,13 @@ app.config(function($routeProvider){
 
 	})
 
+	.when('/new', {
+
+		templateUrl: './views/new.html',
+		controller: 'newController'
+
+	})
+
 });
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
@@ -41,11 +48,23 @@ app.controller('mainController', ['$scope', '$location', '$log', function($scope
 
 }]);
 
+app.controller('newController', ['$scope', '$location', '$log', function($scope, $location, $log){
+
+	$log.info($location.path());
+
+}]);
+
 
 app.controller('gallery', ['$scope', '$location', '$log', function($scope, $location, $log){
 
+	window.scope = $scope;
 
 	$scope.pieces = pieces;
+
+	$scope.filterList = function(){
+		$('li').hide();
+		$('li:contains("untitled")').show();
+	}
 
 
 }]);
