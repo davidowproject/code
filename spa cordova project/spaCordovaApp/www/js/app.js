@@ -21,7 +21,7 @@ app.config(function($routeProvider){
 	.when('/gallery', {
 
 		templateUrl: './views/gallery.html',
-		controller: 'mainController'
+		controller: 'gallery'
 
 	})
 
@@ -38,6 +38,15 @@ app.config(function($routeProvider){
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
 	$log.info($location.path());
+
+}]);
+
+
+app.controller('gallery', ['$scope', '$location', '$log', function($scope, $location, $log){
+
+
+	$scope.pieces = pieces;
+
 
 }]);
 
