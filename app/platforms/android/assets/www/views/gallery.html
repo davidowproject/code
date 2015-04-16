@@ -1,0 +1,22 @@
+<h1 class="header">GALLERY</h1>
+<div class="container">
+
+<div class="searchbox-container">
+	<input class="searchbox" type="text" ng-model="searchText"> 
+
+<!--<a href="#/testPiece"><p>Giggle <br> by Kelli Connell</p></a>-->
+
+<a href="#/piece/{{piece.id}}" class="list-item" ng-repeat="piece in pieces | filter:searchText">
+<ul class="list-unstyled">
+
+<div class="row">
+	<div class= "col-xs-4"><img id="galleryThumb" src="{{piece.thumb_url[0]}}"/></div>
+	<div class="col-xs-8" id="galleryInfo"><h4>{{piece.piece_title}}</h4><h5>{{piece.artist}}</h5></div>
+</div>
+
+</li>
+</ul>
+</a>
+
+</div>
+</div>

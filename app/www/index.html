@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />	
+
+	<!--First we load the cordova script, then we load index to take care of initializing the estimotes-->
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+	<!--jquery & angular scripts are loaded before any other scripts that depend on them-->
+	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/angular.min.js"></script>
+
+	<!--Routing and animations-->
+	<script src="js/angular-route.min.js"></script>	
+	<script src= "js/angular-animate.min.js"></script>	
+
+	<!--Angular-Isotope scripts-->
+	<script src="js/jquery.isotope.js"></script>
+	<script src="js/angular-isotope.js"></script>
+	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+	<script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+	
+	<!--Our app controllers-->
+	<script src="js/app.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+
+	<!--Estimotes and touch events-->
+	<script src= "js/screen-range-beacons.js"></script>
+	<script src= "js/hammer.min.js"></script>	
+	<script src= "js/localStorage.js"></script>	
+
+	<!--angular isotope style sheets might need for testing
+	<link rel="stylesheet" href="css/isotopetest/main.css"/>
+	<link rel="stylesheet" href="css/isotopetest/style.css"/>-->
+	
+	<script>
+		function onRange(foo)
+		{
+			$("#active-beacons").empty();
+			$("#bottom-notification").empty();
+			var c;
+				$.each(pieces, function(i, v){
+				if(foo == v.beaconID) c = v;
+			})
+			$("#active-beacons").append("<div class='row'><div class='col-xs-5'><a href='#/piece/"+c.id+"'><img class='exploreThumb' src="+c.thumb_url[0]+"></div><div class='col-xs-7' style='padding-left:10px;''><h2>"+c.piece_title+"</h2><h3>by "+c.artist+"</h3></div></div>");
+		}
+		//Data setup
+		var pieces = [];
+		var data = $.ajax({
+		  dataType: "json",
+		  url: "js/data.json",
+		  success: function(){
+		  	$.each(data.responseJSON,function(){
+				//todo: add a placeholder image if there wasnt a url
+		  		if(this.piece_image != ""){
+		  			this.image_url = /http:.+?(?=.jpg)(....)/.exec(this.piece_image)[0];
+		  			this.thumb_url = this.piece_image.match(/image\d{1,2}.\d{3,4}x\d{3,4}..../g);
+		  			var currentPiece = this;
+		  			if(this.thumb_url != null){
+			  			$.each(this.thumb_url, function(i, v){
+			  				currentPiece.thumb_url[i] =  /http:.+?(?=.image\d{1,2})/.exec(currentPiece.image_url)[0] + "/" + currentPiece.thumb_url[i];
+			  			})
+		  			}
+		  		}else{
+		  			this.piece_image == "";
+		  			this.thumb_url == "";
+		  		}
+		  		pieces.push(this);
+		  	})
+		  }
+		});
+		//click events
+		$(document).ready(function(){
+			var h = $("html")[0];
+			var close = Hammer(h,{threshold: 4, velocity:.1}).on("swiperight", function() {
+	   			$("#dropdown-menu").show();
+			});
+			var open = Hammer(h,{threshold: 4, velocity:.1}).on("swipeleft", function() {
+	   			$("#dropdown-menu").hide();
+			});
+			$("#dropdown-menu a").click(function(){$("#dropdown-menu").hide()});
+			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
+			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
+		});
+	</script>
+	<!--Style Sheets-->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body ng-app="app">
+	<div id="dropdown-menu" class="accelerate">
+		<h2><a href="#/explore">EXPLORE</a></h2>
+		<h2><a href="#/map">MAP</a></h2>
+		<h2><a href="#/gallery">LIST VIEW</a></h2>
+		<h2><a href="#/tileView">TILE VIEW</a></h2>
+		<h2><a href="#/about">ABOUT</a></h2>
+		<h2><a href="#/tutorial">TUTORIAL</a></h2>
+		<h2><a href="#/settings">SETTINGS</a></h2>
+		<div id="close-btn">
+		X
+		</div>
+	</div>
+	<div ng-view id="view-container" class="center"></div>
+	<div id="bottom-notification">
+	</div>
+</body>
+<div id="menu-btn">
+</div>
+</html>

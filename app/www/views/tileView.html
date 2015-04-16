@@ -1,0 +1,46 @@
+<h1 class="header">GALLERY</h1>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="row" id="filters">
+        <div class="col-md-12">
+          <div class="btn-group" opt-kind ok-key="filter">
+            <button type='button' class='btn btn-default active' id:"filterActive" ok-sel="*">Show All</button>
+            <button type='button' class='btn btn-default' ok-sel=".painting">Painting</button>
+            <button type='button' class='btn btn-default' ok-sel=".sculpture">Sculpture</button>
+            <button type='button' class='btn btn-default' ok-sel=".mixedmedia">Mixed Media</button>
+            <button type='button' class='btn btn-default' ok-sel=".photography">Photography</button>
+            <button type='button' class='btn btn-default' ok-sel=".printmaking">Print Making</button>
+            <button type='button' class='btn btn-default' ok-sel=".other">Other</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Selector and Value-Based Sort</h4>
+          <div class="btn-group" opt-kind ok-key="sortBy">
+            <button type="button" class="btn btn-default" ok-sel=".artist">Artist</button>
+            <button type="button" class="btn btn-default" ok-sel=".piece_title">Title</button>
+            <button type="button" class="btn btn-default" ok-sel="piece.year" ok-type="integer">Year</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISOTOPECONTAINER -->
+      <div class="row">
+        <div id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
+            <div ng-repeat="piece in pieces">
+              <div class="name" name="{{piece.artist}}"></div>
+              <div class="year" year="{{piece.year}}"></div>
+              <div class="title" title="{{piece.piece_title}}"></div>
+             <img class="tilePiece" src="{{piece.thumb_url[0]}}"/>
+          </div>
+        <div>
+      </div>
+    </div>
+  </div>
+</div>
+

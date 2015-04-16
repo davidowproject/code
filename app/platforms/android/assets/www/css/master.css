@@ -1,0 +1,266 @@
+body {
+	background-color: #3b3c3e;
+	color: #ebebeb;
+}
+
+a,a:hover{
+  text-decoration: none;
+  color:white;
+}
+.disable-scroll{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+#view-container{
+  position: absolute;
+  width:100%;
+  /*padding-top: 60px;*/
+}
+#bottom-notification{
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  height:100px;
+  width: 100%;
+  background-color: rgb(19,19,19);
+}
+#menu-btn, #close-btn{
+  padding-top:5px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(79,79,79);
+  border-radius: 5px;
+  border: 1px solid white;
+}
+/*hack for hardware acceleration*/
+.accelarate {
+   -webkit-transform: translate3d(0);
+   -moz-transform: translate3d(0);
+   -ms-transform: translate3d(0);
+   -o-transform: translate3d(0);
+   transform: translate3d(0);
+}
+
+#main-img-header{
+  background-image: url("../img/atecHeader.jpg");
+  background-color: grey;
+  height:330px;
+  background-position-y: -310px;
+    background-position-x: -520px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.img-header{
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#main-h1{
+  text-align: center;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.85);
+}
+.btn-standard{
+  transform: scale(1,1.2);
+  display: block;
+  color: #eee;
+  padding: 10px;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 13px;
+}
+.btn-standard:hover,.btn-standard:focus{
+  outline: none;
+  background-color: white;
+  color: black;
+}
+
+.tilePiece {
+	width: 120px;
+  height: 120px;
+	padding: 2px;
+}
+
+#filters{
+	margin-top: 20px;
+  z-index: -2;
+}
+.piece{
+	height: 170px;
+  box-shadow: 1px 1px 11px black;
+  margin: 20px 20px 20px 25px;
+}
+
+#galleryThumb{
+  height:100px;
+  box-shadow: 1px 1px 10px black;
+}
+
+#galleryInfo{
+  
+}
+
+#exploreThumb{
+  height:100px;
+}
+
+h1, h2, h3{
+font-family: 'Oswald', sans-serif;
+
+}
+
+h4,h5,h6, {
+	font-family: 'Oswald', sans-serif;
+	color: #ebebeb;
+}
+
+a:link{
+	font-family: 'Oswald', sans-serif;
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+a:visited{
+	font-family: 'Oswald', sans-serif;
+	color: #ebebeb;
+}
+
+a:hover{
+	font-family: 'Oswald', sans-serif;
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+a:active{
+	font-family: 'Oswald', sans-serif;
+	color: #ebebeb;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  color: #ebebeb;
+}
+
+.testPiece{
+	height: 300px;
+}
+
+.searchbox{
+  margin-top: 10px;
+	margin-bottom: 10px;
+  	font-size: 20px;
+  	width: 100%;
+  	background: #333;
+  	border: 2px solid #ebebeb;
+  	color: white;
+  	padding: 10px;
+}
+.searchbox:focus{
+	outline: none;
+}
+
+/*Isotope Stuff*/
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+      -ms-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+.isotope-item {
+  z-index: -1;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+}
+
+
+/*Nav*/
+#dropdown-menu{
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  padding: 15px;
+  background-color: rgba(29, 29, 29, 1);
+  width: 80%;
+  z-index: 1;
+  box-shadow: 1px 1px 11px black;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  left: 0;
+  transition: .8s;
+}
+#dropdown-menu h2 a{
+  font-size: 25px;
+  color: rgb(228, 228, 228);
+  border-bottom: 1px solid rgb(47, 47, 47);
+  width: 100%;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+#menu-close-sheild{
+  position: absolute;   
+  width: 70px;
+  right:0px;
+  height: 100%;
+  top:0;
+}
+
+.exploreTitle{
+
+}
+
+.exploreArtist{}
+
+.artInfo{
+  margin-left: 30px;
+}
+
+.header{
+  background:#303030;
+  padding:10px;
+  border-bottom:1px solid black;
+  box-shadow:1px 0px 10px black;
+  text-align: center;
+}
