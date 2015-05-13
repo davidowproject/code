@@ -1,0 +1,26 @@
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes.dex : \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons$1.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons$2.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons$3.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons$PluginMonitoringListener.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons$PluginRangingListener.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\com\evothings\EstimoteBeacons.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\BuildConfig.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\CordovaApp.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\R$attr.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\R$drawable.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\R$string.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\R$xml.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\io\cordova\hellocordova\R.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$1.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$2.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$3.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$4.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$5$1.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$5.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$6$1.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$6.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen$7.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen.class \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\dexedLibs\classes-2fedd41c2b0fac81343ff548954151d6.jar \
+C:\Users\Judy\Documents\GitHub\code\isotopetest\spaCordovaApp\platforms\android\ant-build\dexedLibs\estimote-sdk-preview-2f0aff6d071aee0f507bdcd1d8ab4f6c.jar \
