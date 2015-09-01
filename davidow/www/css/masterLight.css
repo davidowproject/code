@@ -86,6 +86,7 @@ p{
   border:1px solid black;
 }
 #view-container{
+  padding-right: 60px;
   position: absolute;
   width:100%;
 }
@@ -198,28 +199,36 @@ p{
 
 /*Nav*/
 #dropdown-menu{
-  display: none;
+  /*display: none;*/
   position: fixed;
   top: 0;
   height: 100%;
-  padding: 15px;
   background-color: #EBEBEB;
-  width: 80%;
+  width: 60px;
   z-index: 1;
   box-shadow: -2px 1px 11px rgb(183,183,183);
   color: rgb(255, 255, 255);
   text-align: center;
   right: 0;
-  transition: .8s;
+  transition: .8;
+  padding-top:40px;
 }
-#dropdown-menu h2 a{
-  font-size: 25px;
-  color: #3b3c3e;
+
+#dropdown-menu a{
+  padding: 20px 0 20px 0;
   border-bottom: 1px solid rgb(183, 183, 183);
   width: 100%;
-  padding-bottom: 20px;
   display: inline-block;
 }
+
+#dropdown-menu a .temp-icon{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: grey;
+  margin: auto;
+}
+
 #menu-close-sheild{
   position: absolute;   
   width: 70px;

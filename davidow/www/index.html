@@ -87,6 +87,7 @@
 		  }
 		});
 		//Click and swipe events
+		/*
 		$(document).ready(function(){
 			var h = $("html")[0];
 			var close = Hammer(h,{threshold: 4, velocity:.1}).on("swipeleft", function() {
@@ -99,6 +100,7 @@
 			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
 			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
 		});
+		*/	
 	</script>
 	<!--Style Sheets-->
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
@@ -106,21 +108,30 @@
 	<link rel="stylesheet" href="css/stylesBlue.css">
 </head>
 <body ng-app="app">
+
+	<!--side menu-->
 	<div id="dropdown-menu" class="accelerate">
-		<h2><a href="#/explore">EXPLORE</a></h2>
-		<h2><a href="#/gallery">LIST VIEW</a></h2>
-		<h2><a href="#/tileView">TILE VIEW</a></h2>
-		<h2><a href="#/tutorial">TUTORIAL</a></h2>
-		<h2><a href="#/about">ABOUT</a></h2>
-		<div id="close-btn">
-		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-		</div>
+		<a href="#/explore">
+			<div class="temp-icon"></div>			
+		</a>
+		<a href="#/gallery">
+			<div class="temp-icon"></div>			
+		</a>
+		<a href="#/tileView">
+			<div class="temp-icon"></div>			
+		</a>
+		<a href="#/about">
+			<div class="temp-icon"></div>			
+		</a>
 	</div>
+
+	<!--page content injected here-->
 	<div ng-view id="view-container" class="center"></div>
+	
 	<div id="bottom-notification">
 	</div>
 </body>
-<div id="menu-btn">
+<!--<div id="menu-btn">
 	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-</div>
+</div>-->
 </html>
