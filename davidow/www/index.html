@@ -42,10 +42,59 @@
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	
 	<script>
+ 	function daynightCycle(){
+      var currentTime = new Date().getHours();
+      if (9 <= currentTime&&currentTime <= 17) {
+       document.write("<link rel='stylesheet' href='css/stylesBlue.css' type='text/css'>");
+      }
+      if (9 <= currentTime&&currentTime <= 17) {
+       document.write("<link rel='stylesheet' href='css/masterLight.css' type='text/css'>");
+      }
+      if (17 <= currentTime&&currentTime <= 23) {
+       document.write("<link rel='stylesheet' href='css/stylesYellow.css' type='text/css'>");
+      }
+      if (17 <= currentTime&&currentTime <= 23) {
+       document.write("<link rel='stylesheet' href='css/master.css' type='text/css'>");
+      }
+}
+daynightCycle();
+
+		//Stylesheets on load
 		if (localStorage.onboarding == "notShown"){
 			window.location.hash = "/onBoarding"
 			localStorage.setItem("onboarding","shown");
 		}
+		/*if(localStorage.theme == "light"){
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = 'css/masterLight.css';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = 'css/stylesBlue.css';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+		}else{
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = 'css/master.css';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = 'css/stylesYellow.css';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+		}*/
 		//Desktop testing for beacons
 		function onRange(foo)
 		{
@@ -98,12 +147,14 @@
 			$("#dropdown-menu a").click(function(){$("#dropdown-menu").hide()});
 			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
 			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
+
 		});
+
 	</script>
 	<!--Style Sheets-->
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/masterLight.css">
-	<link rel="stylesheet" href="css/stylesBlue.css">
+	<!--<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/stylesBlue.css">-->
 </head>
 <body ng-app="app">
 	<div id="dropdown-menu" class="accelerate">
@@ -111,6 +162,7 @@
 		<h2><a href="#/gallery">LIST VIEW</a></h2>
 		<h2><a href="#/tileView">TILE VIEW</a></h2>
 		<h2><a href="#/tutorial">TUTORIAL</a></h2>
+		<h2><a href="#/settings">SETTINGS</a></h2>
 		<h2><a href="#/about">ABOUT</a></h2>
 		<div id="close-btn">
 		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
