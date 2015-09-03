@@ -1,31 +1,38 @@
+<style>
+	#disabled{
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.35);
+		height:135px;
+		margin-top:-155px;
+	}
+	.form-control{
+		width: 100%;
+	}
+</style>
+
 <h1 class="header">SETTINGS</h2>
 <div class="container">
 
-	<!--Theme-->
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h2 class="panel-title">Theme</h2>
 		</div>
 		<div class="panel-body">
-		Overwrite the day and night cycle with a persistant theme.
+		Select a theme, or let us set one for you based on the time of day.
 		<br>
 		<br>
 		<form>
-			<div class="row">
-				<div class="col-xs-6">
-					<label>Dark Theme <input id="dark" type="radio" name="theme"></label>
-				</div>
-				<div class="col-xs-6">
-					<label>Light Theme <input id="light" type="radio" name="theme"></label>
-				</div>
-			</div>
+			<select class="form-control">
+				<option>Natural</option>
+				<option>Day</option>
+				<option>Night</option>
+			</select>
 		</form>
 
 		</div>
 	</div>
-	<!--End Theme-->
 
-	<!--Cycle-->
+	<!--Cycle
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h2 class="panel-title">Day/Night Cycle</h2>
@@ -40,9 +47,35 @@
 
 		</div>
 	</div>
-	<!--End Cycle-->
+	End Cycle-->
 
-	<!--Notifications-->
+	<!--Theme
+	<div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Theme</h2>
+			</div>
+			<div class="panel-body">
+				Overwrite the day and night cycle with a persistant theme.
+				<br>
+				<br>
+				<form>
+					<div class="row">
+						<div class="col-xs-6">
+							<label>Dark Theme <input id="dark" type="radio" name="theme"></label>
+						</div>
+						<div class="col-xs-6">
+							<label>Light Theme <input id="light" type="radio" name="theme"></label>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="disabled"></div>
+	</div>
+	End Theme-->
+
+	<!--Notifications
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h2 class="panel-title">Notifications</h2>
@@ -57,7 +90,7 @@
 
 		</div>
 	</div>
-	<!--End Notifications-->
+	End Notifications-->
 
 
 </div>

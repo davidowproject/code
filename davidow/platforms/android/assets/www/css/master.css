@@ -107,15 +107,7 @@ p{
 #menu-btn span, #close-btn span{
   color: #eaca5d;
 }
-#main-img-header{
-  background-image: url("../img/atecHeader.jpg");
-  background-color: grey;
-  height:330px;
-  background-position-y: -310px;
-    background-position-x: -520px;
-  padding-top: 40px;
-  margin-bottom: 20px;
-}
+
 .img-header{
     padding: 20px;
     margin-bottom: 30px;
@@ -158,6 +150,8 @@ p{
     z-index: 9999;
 
 }
+
+
 .searchbox:focus{
 	outline: none;
 }
