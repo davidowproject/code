@@ -42,7 +42,7 @@
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	
 	<script>
- 	function daynightCycle(){
+ /* function daynightCycle(){
       var currentTime = new Date().getHours();
       if (9 <= currentTime&&currentTime <= 17) {
        document.write("<link rel='stylesheet' href='css/stylesBlue.css' type='text/css'>");
@@ -57,14 +57,14 @@
        document.write("<link rel='stylesheet' href='css/master.css' type='text/css'>");
       }
 }
-daynightCycle();
+daynightCycle();*/
 
 		//Stylesheets on load
 		if (localStorage.onboarding == "notShown"){
 			window.location.hash = "/onBoarding"
 			localStorage.setItem("onboarding","shown");
 		}
-		/*if(localStorage.theme == "light"){
+		if(localStorage.theme == "light"){
 			var headID = document.getElementsByTagName("head")[0];
 			var cssNode = document.createElement('link');
 			cssNode.type = 'text/css';
@@ -94,7 +94,7 @@ daynightCycle();
 			cssNode.href = 'css/stylesYellow.css';
 			cssNode.media = 'screen';
 			headID.appendChild(cssNode);
-		}*/
+		}
 		//Desktop testing for beacons
 		function onRange(foo)
 		{
