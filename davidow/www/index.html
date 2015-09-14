@@ -19,12 +19,6 @@
 	<script src="js/angular-route.min.js"></script>
 	<script src= "js/angular-animate.min.js"></script>
 
-	<!--Angular-Isotope scripts-->
-	<script src="js/jquery.isotope.js"></script>
-	<script src="js/angular-isotope.js"></script>
-	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-	<script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
-
 	<!--Our app controllers-->
 	<script src="js/app.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -34,16 +28,12 @@
 	<script src= "js/hammer.min.js"></script>
 	<script src= "js/localStorage.js"></script>
 
-	<!--angular isotope style sheets might need for testing
-	<link rel="stylesheet" href="css/isotopetest/main.css"/>
-	<link rel="stylesheet" href="css/isotopetest/style.css"/>-->
-
 	<!--twitter-->
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<script>
 		//Stylesheets on load
-		if (localStorage.onboarding == "notShown"){
+		/*(localStorage.onboarding == "notShown"){
 			window.location.hash = "/onBoarding"
 			localStorage.setItem("onboarding","shown");
 		}
@@ -77,9 +67,10 @@
 			cssNode.href = 'css/stylesYellow.css';
 			cssNode.media = 'screen';
 			headID.appendChild(cssNode);
-		}
+		}*/
 		//Desktop testing for beacons
-		function onRange(foo)
+		
+        function onRange(foo)
 		{
 			$(".beacon").hide();
 			var c;
@@ -136,8 +127,10 @@
 	</script>
 	<!--Style Sheets-->
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
-	<!--<link rel="stylesheet" href="css/master.css">
-	<link rel="stylesheet" href="css/stylesBlue.css">-->
+    
+    <link rel="stylesheet" href="css/masterLight.css">
+    <link rel="stylesheet" href="css/stylesBlue.css">
+	
 </head>
 <body ng-app="app">
 	<div id="dropdown-menu" class="accelerate">

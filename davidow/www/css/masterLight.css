@@ -126,7 +126,7 @@ p{
 }
 #galleryThumb{
   height:100px;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: -1px 3px 4px -1px #333;
   margin-top:10px;
 }
 #exploreThumb{
@@ -134,17 +134,29 @@ p{
 }
 
 .searchbox{
-  margin-top: 2px;
-	margin-bottom: 10px;
-  	font-size: 20px;
-  	width: 100%;
-  	background: #333;
-  	border: 2px solid #ebebeb;
-  	color: white;
-  	padding: 10px;
+    margin-top: 2px; 
+    width: 80%;
+    padding: 10px;
+    z-index: 9999;
+    background: #ebebeb;
+    border: 2px solid #999ba1;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -khtml-border-radius: 10px;
 }
+
 .searchbox:focus{
 	outline: none;
+    border-color: #3b3c3e;
+  color: #3b3c3e;
 }
 
 /*Isotope Stuff*/
@@ -240,15 +252,16 @@ p{
 }
 .header{
   background:#DADADA;
-  padding:10px;
+  padding:6px;
   border-bottom:1px solid #A7A7A7;
   box-shadow:1px 0px 10px #9E9E9E;
-  text-align: center;
+text-align: center;
+margin-top: 1px;
 }
 
 #magnifyingGlass{
-  float: left; 
-  left: 22px; 
-  font-size:30px; 
-  top:6px
+      float: left;
+    left: 7px;
+    font-size: 30px;
+    top: 17px;
 }

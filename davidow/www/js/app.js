@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'iso.directives', 'hljs', 'ngAnimate']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider){
 
