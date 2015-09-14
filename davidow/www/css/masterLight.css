@@ -126,7 +126,7 @@ p{
 }
 #galleryThumb{
   height:100px;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: -1px 3px 4px -1px #333;
   margin-top:10px;
 }
 #exploreThumb{
