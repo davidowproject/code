@@ -133,7 +133,7 @@
 	
 </head>
 <body ng-app="app">
-	<div id="dropdown-menu" class="accelerate">
+	<!--<div id="dropdown-menu" class="accelerate">
 		<h2><a href="#/explore">EXPLORE</a></h2>
 		<h2><a href="#/gallery">LIST VIEW</a></h2>
 		<h2><a href="#/tileView">TILE VIEW</a></h2>
@@ -143,12 +143,18 @@
 		<div id="close-btn">
 		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
 		</div>
-	</div>
+	</div>-->
 	<div ng-view id="view-container" class="center"></div>
 	<div id="bottom-notification">
 	</div>
 </body>
-<div id="menu-btn">
+<!--<div id="menu-btn">
 	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-</div>
+</div>-->
+<div class="bottom-nav ng-scope">
+    <a href="#/explore"><img src="img/explore.png"></a>
+    <a href="#/map"><img src="img/map.png"></a>
+    <a href="#tileView"><img src="img/gallery.png"></a>
+    <a href="#/settings"><img src="img/settings.png"></a>
+    </div>
 </html>
