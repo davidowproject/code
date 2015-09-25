@@ -1,12 +1,11 @@
+
 <h1 class="header" style="padding-top:0; height:65px;">
-	<div class="row" style="margin:0;">
+
+		<div class="row" style="margin:0;">
 		<span class="glyphicon glyphicon-search" aria-hidden="true" ng-click="showSearch=!showSearch" id="magnifyingGlass"></span>
-		<input class="searchbox" type="text" ng-model="searchText" ng-show="showSearch">
-	</div>
-</h1>
-	<div class="container">
-	
-		<a href="#/piece/{{piece.id}}" class="list-item" ng-repeat="piece in pieces | filter:searchText">
+		<input class="searchbox" type="text" ng-model="searchText" ng-show="showSearch"></div> </h1>
+<div class="container">
+	<a href="#/piece/{{piece.id}}" class="list-item" ng-repeat="piece in pieces | filter:searchText">
 
 		<div class="row">
 			<div class= "col-xs-4">
@@ -18,13 +17,15 @@
 			</div>
 			<div class="col-xs-1">
 				<div class="beacon">
-                    <i class="marker"></i>
-	                <i class="marker" id="beacon2"></i>
-	                <i class="marker" id="beacon3"></i>
-	                <i class="marker" id="beacon4"></i>
-                	<i class="marker" id="beacon5"></i>
-				</div>
+				                    <i class="marker"></i>
+                    <i class="marker" id="beacon2"></i>
+                    <i class="marker" id="beacon3"></i>
+                    <i class="marker" id="beacon4"></i>
+                    <i class="marker" id="beacon5"></i>
+</div>
 			</div>
 		</div>
 	</a>
+
+
 </div>
