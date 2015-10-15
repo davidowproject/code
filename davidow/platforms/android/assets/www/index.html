@@ -32,42 +32,6 @@
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<script>
-		//Stylesheets on load
-		/*(localStorage.onboarding == "notShown"){
-			window.location.hash = "/onBoarding"
-			localStorage.setItem("onboarding","shown");
-		}
-		if(localStorage.theme == "light"){
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/masterLight.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesBlue.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}else{
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/master.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesYellow.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}*/
 		//Desktop testing for beacons
 		
         function onRange(foo)
@@ -127,13 +91,11 @@
 	</script>
 	<!--Style Sheets-->
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
-    
     <link rel="stylesheet" href="css/masterLight.css">
-    <link rel="stylesheet" href="css/stylesBlue.css">
-	
+    
 </head>
 <body ng-app="app">
-	<div id="dropdown-menu" class="accelerate">
+	<!--<div id="dropdown-menu" class="accelerate">
 		<h2><a href="#/explore">EXPLORE</a></h2>
 		<h2><a href="#/gallery">LIST VIEW</a></h2>
 		<h2><a href="#/tileView">TILE VIEW</a></h2>
@@ -143,12 +105,18 @@
 		<div id="close-btn">
 		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
 		</div>
-	</div>
+	</div>-->
 	<div ng-view id="view-container" class="center"></div>
 	<div id="bottom-notification">
 	</div>
 </body>
-<div id="menu-btn">
+<!--<div id="menu-btn">
 	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-</div>
+</div>-->
+<div class="bottom-nav ng-scope">
+    <a href="#/explore"><img src="img/explore.png"></a>
+    <a href="#/map"><img src="img/map.png"></a>
+    <a href="#tileView"><img src="img/gallery.png"></a>
+    <a href="#/settings"><img src="img/settings.png"></a>
+    </div>
 </html>
