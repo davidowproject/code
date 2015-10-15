@@ -1,19 +1,16 @@
 <style>
 .tilePiece{
-  max-height:120px;
-max-width:120px;
+  height:120px;
+  width: 120px;
 }
-    
-.container{
-padding:0;
-margin:auto;}
 </style>
 
 <h1 class="header">GALLERY</h1>
 <div class="container">
 <div class="searchbox-container">
   <input class="searchbox" type="text" ng-model="searchText"> 
-  
+  <div class="row">
+    <div class="col-md-6">
 
       <!--<div class="row" id="filters">
         <div class="col-md-12">
@@ -40,13 +37,18 @@ margin:auto;}
         </div>
       </div>-->
 
-              <div class="name" name="{{piece.artist}}">
+      <!-- ISOTOPECONTAINER -->
+      <div class="row">
+        <div id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
+            <div ng-repeat="piece in pieces">
+              <div class="name" name="{{piece.artist}}"></div>
               <div class="year" year="{{piece.year}}"></div>
-              <div class="title" title="{{piece.piece_title}}"></div>
-             <img class="tilePiece" src="{{piece.thumb_url[0]}}" ng-repeat="piece in pieces"/>
+              <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
+             <img class="tilePiece" src="{{piece.thumb_url[0]}}"/>
+          </div>
+        <div>
       </div>
     </div>
-    </div>
-
-
+  </div>
+</div>
 
