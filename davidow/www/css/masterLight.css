@@ -209,7 +209,7 @@ p{
   color: #3b3c3e;
 }
 
-/*Isotope Stuff
+/*Isotope Stuff*/
 
 
 .isotope,
@@ -237,7 +237,7 @@ p{
           transition-property:         transform, opacity;
 }
 
-/* disabling Isotope CSS3 transitions 
+/* disabling Isotope CSS3 transitions*/ 
 
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
@@ -256,7 +256,7 @@ p{
 .isotope-hidden.isotope-item {
   pointer-events: none;
 }
-*/
+
 
 
 .artInfo{
