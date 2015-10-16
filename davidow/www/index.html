@@ -34,50 +34,11 @@
 	<script src= "js/hammer.min.js"></script>
 	<script src= "js/localStorage.js"></script>
 
-	<!--angular isotope style sheets might need for testing
-	<link rel="stylesheet" href="css/isotopetest/main.css"/>
-	<link rel="stylesheet" href="css/isotopetest/style.css"/>-->
-
 	<!--twitter-->
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<script>
-		//Stylesheets on load
-		/*(localStorage.onboarding == "notShown"){
-			window.location.hash = "/onBoarding"
-			localStorage.setItem("onboarding","shown");
-		}
-		if(localStorage.theme == "light"){
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/masterLight.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesBlue.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}else{
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/master.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesYellow.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}*/
+
 		//Desktop testing for beacons
 		
         function onRange(foo)
@@ -155,8 +116,6 @@
 		</div>
 	</div>-->
 	<div ng-view id="view-container" class="center"></div>
-	<div id="bottom-notification">
-	</div>
 </body>
 <!--<div id="menu-btn">
 	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
