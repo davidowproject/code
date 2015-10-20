@@ -171,8 +171,8 @@ p{
   z-index: -2;
 }
 #piece{
-  width: 90%;
-  margin: 10px 15px 15px 15px;
+  width: 100%;
+  margin-bottom:20px;
 }
 #galleryThumb{
   height:100px;
