@@ -18,6 +18,7 @@
 	<!--Routing and animations-->
 	<script src="js/angular-route.min.js"></script>
 	<script src= "js/angular-animate.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
 
 	<!--Angular-Isotope scripts-->
 	<script src="js/jquery.isotope.js"></script>
@@ -59,7 +60,7 @@
 		var pieces = [];
 		var data = $.ajax({
 		  dataType: "json",
-		  url: "js/data.json",
+		  url: "js/davidow.json",
 		  success: function(){
 		  	$.each(data.responseJSON,function(){
 				//todo: add a placeholder image if there wasnt a url
@@ -92,38 +93,34 @@
 			$("#dropdown-menu a").click(function(){$("#dropdown-menu").hide()});
 			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
 			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
-
+			$(".nav-icon").click(function(){
+				$(".active-nav").removeClass("active-nav");
+				$(this).addClass("active-nav");
+			})
 		});
 
 	</script>
 	<!--Style Sheets-->
-	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
     
     <link rel="stylesheet" href="css/masterLight.css">
     <link rel="stylesheet" href="css/stylesBlue.css">
 	
 </head>
+
+<!--screens injected here-->
 <body ng-app="app">
-	<!--<div id="dropdown-menu" class="accelerate">
-		<h2><a href="#/explore">EXPLORE</a></h2>
-		<h2><a href="#/gallery">LIST VIEW</a></h2>
-		<h2><a href="#/tileView">TILE VIEW</a></h2>
-		<h2><a href="#/tutorial">TUTORIAL</a></h2>
-		<h2><a href="#/settings">SETTINGS</a></h2>
-		<h2><a href="#/about">ABOUT</a></h2>
-		<div id="close-btn">
-		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-		</div>
-	</div>-->
 	<div ng-view id="view-container" class="center"></div>
 </body>
-<!--<div id="menu-btn">
-	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-</div>-->
+
+<!--nav-->
 <div class="bottom-nav ng-scope">
-    <a href="#/explore"><img src="img/explore.png"></a>
-    <a href="#/map"><img src="img/map.png"></a>
-    <a href="#tileView"><img src="img/gallery.png"></a>
-    <a href="#/settings"><img src="img/settings.png"></a>
-    </div>
+    <a href="#/explore"><img class="nav-icon active-nav" src="img/explore.png"></a>
+    <a href="#/map"><img class="nav-icon" src="img/map.png"></a>
+    <a href="#tileView"><img class="nav-icon" src="img/gallery.png"></a>
+</div>
+<style>
+	.nav-icon{-webkit-filter:brightness(100);}
+	.active-nav{-webkit-filter:none !important;}	
+</style>
 </html>
