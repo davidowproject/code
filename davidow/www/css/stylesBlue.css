@@ -1,9 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /* This is based on the Flat UI HTML at http://designmodo.github.io/Flat-UI/ and BootStrap HTML */
 /*development fork*/
-/*import oswald font family*/
-/*import open sans font family*/
+/*import Roboto font family*/
+/*import Roboto font family*/
 /*dark theme background color*/
 /*dark theme text color*/
 /*dark theme button indention*/
@@ -42,7 +42,7 @@
   border: 2px solid #3b3c3e;
   display: inline-block;
   color: #3b3c3e;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   height: 50px;
   line-height: 55px;
@@ -71,7 +71,7 @@
   text-indent: 0px;
   display: inline-block;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   height: 50px;
@@ -125,14 +125,40 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', 'San Francisco' sans-serif;
   color: #3b3c3e;
+}
+
+h2{
+        font-size: 25px;
+    font-weight: 600;
+    margin-top: 0px;
+    line-height: 15px;
+}
+
+h3{
+    font-size:19px;
+    font-weight: 400;
+    
+}
+
+h4{
+    
+    font-weight: 400;
+    clear:both;
+}
+
+h5{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    
 }
 
 body {
   background-color: #ebebeb;
   color: #3b3c3e;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 a {
   text-decoration: none;
@@ -192,7 +218,7 @@ ul {
   border: 2px solid #3b3c3e;
   display: inline-block;
   color: #3b3c3e;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   height: 50px;
   line-height: 55px;
@@ -225,7 +251,7 @@ ul {
   text-indent: 0px;
   display: inline-block;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   height: 50px;
@@ -245,7 +271,7 @@ input.text {
   font-size: 13px;
   margin: 50px auto;
   width: 200px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -288,7 +314,7 @@ input.text:focus {
   border: 2px solid #3b3c3e;
   display: inline-block;
   color: #3b3c3e;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   height: 50px;
   line-height: 55px;
@@ -317,7 +343,7 @@ input.text:focus {
   text-indent: 0px;
   display: inline-block;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   height: 50px;
@@ -372,7 +398,7 @@ input.text:focus {
   border: 2px solid #3b3c3e;
   display: inline-block;
   color: #3b3c3e;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   height: 50px;
   line-height: 30px;
@@ -391,7 +417,7 @@ input.text:focus {
   padding: 12px;
   background-color: #4fc5e7;
   box-shadow: inset 2px 2px 1px 1px #292929;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
   text-transform: uppercase;
@@ -421,7 +447,7 @@ input.text:focus {
 input[name="tagsinput"] {
   background-color: #3b3c3e;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   border: none;
   width: 80px;
@@ -444,7 +470,7 @@ input[name="tagsinput"] {
 input[name="tagsinput"]:hover {
   background-color: #4fc5e7;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   border: none;
   width: 80px;
@@ -474,7 +500,7 @@ input[name="tagsinput"]:hover {
   border: 2px solid #3b3c3e;
   display: inline-block;
   color: #3b3c3e;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   height: 50px;
   line-height: 55px;
@@ -485,10 +511,10 @@ input[name="tagsinput"]:hover {
   background-color: #ebebeb;
 }
 .select2-choice {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #999ba1;
   color: #ebebeb;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   text-transform: lowercase;
   letter-spacing: .5px;
@@ -497,7 +523,7 @@ input[name="tagsinput"]:hover {
   background-color: #4fc5e7;
   color: #ebebeb;
   border-color: none;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: .5px;
@@ -517,7 +543,7 @@ input[name="tagsinput"]:hover {
   font-size: 13px;
   margin: 10px auto;
   width: 200px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -582,7 +608,7 @@ input[name="tagsinput"]:hover {
   font-size: 19px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffffff;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-border-top-left-radius: 2px;
   -moz-border-radius-topleft: 2px;
   border-top-left-radius: 2px;
@@ -619,7 +645,7 @@ input[name="tagsinput"]:hover {
   border-bottom-left-radius: 2px;
   text-indent: 0px;
   display: inline-block;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   height: 30px;
@@ -741,7 +767,7 @@ input[type="radio"]:checked {
 }
 /**********switch styles & transitions**********/
 .ui-flipswitch {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ebebeb;
   /*color of ON/OFF text*/
   background-color: #999ba1;
