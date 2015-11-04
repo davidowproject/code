@@ -114,13 +114,22 @@
 </body>
 
 <!--nav-->
-<div class="bottom-nav ng-scope">
+<!--<div class="bottom-nav ng-scope">
     <a href="#/explore"><img class="nav-icon active-nav" src="img/explore.png"></a>
     <a href="#/map"><img class="nav-icon" src="img/map.png"></a>
     <a href="#tileView"><img class="nav-icon" src="img/gallery.png"></a>
-</div>
-    
-    <button class="menu-btn"></button>
+</div>-->
+    <div class="circle-nav-container">
+    <button class="menu-btn" id="cn-button"></button>
+        <div class="circle-nav-wrapper" id="circle-nav-wrapper">
+    <ul>
+        <li><a href="#/gallery"><span><img class="nav-icon active-nav circle-nav" src="img/gallery-alt.png"></a></span></li>
+        <li><a href="#/explore"><span><img class="nav-icon active-nav circle-nav" src="img/binoculars-alt.png"></a></span></li>
+        <!--<li><a href="#/map"><img class="nav-icon" src="img/map.png"></a></li>
+        <li><a href="#/tileView"><img class="nav-icon" src="img/gallery.png"></a></li>-->
+        </ul>
+        </div>
+    </div>
 <style>
 	.nav-icon{-webkit-filter:brightness(100);}
 	.active-nav{-webkit-filter:none !important;}
@@ -138,4 +147,47 @@
         border:none;
     }
 </style>
+    
+    <script>(function(){
+
+	var button = document.getElementById('cn-button'),
+    wrapper = document.getElementById('circle-nav-wrapper');
+   
+
+	//open and close menu when the button is clicked
+	var open = false;
+	button.addEventListener('click', handler, false);
+	wrapper.addEventListener('click', cnhandle, false);
+
+	function cnhandle(e){
+		e.stopPropagation();
+	}
+
+	function handler(e){
+		if (!e) var e = window.event;
+	 	e.stopPropagation();//so that it doesn't trigger click event on document
+
+	  	if(!open){
+	    	openNav();
+	  	}
+	 	else{
+	    	closeNav();
+	  	}
+	}
+	function openNav(){
+		open = true;
+	    button.innerHTML = "-";
+	    classie.add(wrapper, 'opened-nav');
+	}
+	function closeNav(){
+		open = false;
+		button.innerHTML = "+";
+		classie.remove(wrapper, 'opened-nav');
+	}
+	document.addEventListener('click', closeNav);
+
+})();
+
+</script>
+    <script src="js/polyfills.js"></script>
 </html>
