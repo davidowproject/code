@@ -36,25 +36,126 @@ html,body{
   top: 16px;
   right: 14px;
 }
+#filter-menu a{
+  color: #333;
+}
+#filter-menu{
+  display: none;
+  min-height: 100%;
+  min-width: 100%;
+  background: rgba(0, 0, 0, 0.76);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding-top: 20%;
+}
+#menu-inner{
+  background: white;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+  border-radius: 4px;
+}
+#filter-toolbar{
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+hr{opacity: .2}
+
+#menu-header{
+  float:left;
+  font-size: 20px;
+}
+#menu-close{
+  float:right;
+  font-size: 20px;
+}
+.menu-checkbox{
+  margin-bottom: 15px;
+}
+
 </style>
 
 
 <input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 <div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
 
+<div id="filter-toolbar">
+  <div id="open-fiter-button" ng-click="showMenu()">Show Filters</div>
+</div>
 
-<div class="row">  
-  
+
+<div id="filter-menu">
+
+  <div id="menu-inner">
+
+  <div id="menu-header">Filter Gallery</div>
+  <div id="menu-close" ng-click="hideMenu()">&times</div>
+  <br>
+  <hr>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('0')" />
+        Lithograph
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox"  ng-click="filterBy('1')" />
+        Mixed Media
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('2')" />
+        Painting
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('3')" />
+        Photograph
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('4')" />
+        Print
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('5')" />
+        Sculpture
+      </label>
+    </div>
+
+    <a href="" ng-click="reverse=!reverse;order('piece_title', reverse)">A-Z</a>
+
+  </div>
+
 </div>
 
 <div class="row">
 
-  <div class="col-xs-6" style="margin-bottom:20px;text-align:center" ng-repeat="piece in pieces | filter:searchText">
+  <div class="col-xs-6 piece-item" style="margin-bottom:20px;text-align:center" ng-repeat="piece in pieces | filter:searchText">
     
     <!--data for filtering; not shown-->
     <!--<div class="name" name="{{piece.artist}}"></div>
     <div class="year" year="{{piece.year}}"></div>-->
     <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
+    <div class="title" data-medium="{{piece.piece_category}}" style="padding:0;"></div>
     <!--end filter data-->
     
     <!--data that will be shown-->
@@ -64,3 +165,4 @@ html,body{
   </div>
 
 </div>
+
