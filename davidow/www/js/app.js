@@ -133,8 +133,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   	$scope.filterBy = function(medium){
   		window.shown[medium] = !window.shown[medium];
   		
-  		console.log(window.shown);
-
   		$(".piece-item").hide();
   		
   		if(window.shown[0]){
