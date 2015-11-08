@@ -327,28 +327,17 @@ p{
 }
 
 .searchbox{
-    margin-top: 2px; 
-    width: 80%;
-    padding: 10px;
-    z-index: 9999;
-    background: #ebebeb;
-    border: 2px solid #999ba1;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -ms-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    transition: all .2s ease;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -khtml-border-radius: 10px;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    font-size: 22px;
+    border: none;
+    border-bottom: 2px solid #C9C9C9;
 }
 
 .searchbox:focus{
 	outline: none;
-    border-color: #3b3c3e;
+  border-color: #4FC6E8;
   color: #3b3c3e;
 }
 

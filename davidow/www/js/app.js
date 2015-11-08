@@ -113,16 +113,61 @@ app.controller('piece', ['$scope', '$location', '$routeParams', function($scope,
 
 }]);
 
-app.controller('tileView', ['$scope', '$location', '$log', function($scope, $location, $log){
+app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
 
 	window.scope = $scope;
-
 	$scope.pieces = pieces;
-
 	$scope.url = [];
 	for(var i = 0; i < pieces.length; i++){
 		$scope.url.push(pieces[i].image_URL);
 	}
+
+  	var orderBy = $filter('orderBy');
+
+  	window.shown = [false,false,false,false,false,false]
+
+	$scope.order = function(predicate, reverse) {
+    	$scope.pieces = orderBy($scope.pieces, predicate, reverse);
+  	};
+
+  	$scope.filterBy = function(medium){
+  		window.shown[medium] = !window.shown[medium];
+  		
+  		$(".piece-item").hide();
+  		
+  		if(window.shown[0]){
+  			$(".piece-item div[data-medium='lithograph']").parent().show()
+  		}
+  		if(window.shown[1]){
+  			$(".piece-item div[data-medium='mixed media']").parent().show()
+  		}
+  		if(window.shown[2]){
+  			$(".piece-item div[data-medium='painting']").parent().show()
+  		}
+  		if(window.shown[3]){
+  			$(".piece-item div[data-medium='photograph']").parent().show()
+  		}
+  		if(window.shown[4]){
+  			$(".piece-item div[data-medium='print']").parent().show()
+  		}
+  		if(window.shown[5]){
+  			$(".piece-item div[data-medium='sculpture']").parent().show()
+  		}
+  		if(window.shown[0] == false && window.shown[1] == false && window.shown[2] == false && window.shown[3] == false && window.shown[4] == false && window.shown[5] == false){
+	  		$(".piece-item").show();
+  		}
+
+  	}
+
+  	$scope.hideMenu = function(){
+  		$("#filter-menu").hide()
+  		$("*").css("overflow-y","initial").css("overflow-x","initial")
+  	}
+
+  	$scope.showMenu = function(){
+  		$("#filter-menu").show()
+  		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
+  	}
 
 }]);
 

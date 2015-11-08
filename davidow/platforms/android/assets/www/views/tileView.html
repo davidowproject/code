@@ -1,54 +1,168 @@
 <style>
-.tilePiece{
-  height:120px;
-  width: 120px;
+html,body{
+  overflow-x:hidden;
 }
+.tilePiece{
+  height:150px;
+  width: 150px;
+}
+.tileTitle{
+  text-align: left;
+  position: relative; 
+  /* bottom: 0px; */
+  /* left: 19px; */
+  color: white;
+  width: 150px;
+  margin: auto;
+  margin-top: -20px;
+  padding-left: 4px;
+  height:20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.81+68,0+100 */
+  background: -moz-linear-gradient(left, rgba(0,0,0,0.81) 0%, rgba(0,0,0,0.81) 68%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.81)), color-stop(68%,rgba(0,0,0,0.81)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to right, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cf000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+#search-icon span{
+  position: absolute;
+  font-size: 26px;
+  color: #AFAFAF;
+  top: 16px;
+  right: 14px;
+}
+#filter-menu a{
+  color: #333;
+}
+#filter-menu{
+  display: none;
+  min-height: 100%;
+  min-width: 100%;
+  background: rgba(0, 0, 0, 0.76);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding-top: 20%;
+}
+#menu-inner{
+  background: white;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+  border-radius: 4px;
+}
+#filter-toolbar{
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+hr{opacity: .2}
+
+#menu-header{
+  float:left;
+  font-size: 20px;
+}
+#menu-close{
+  float:right;
+  font-size: 20px;
+}
+.menu-checkbox{
+  margin-bottom: 15px;
+}
+
 </style>
 
-<h1 class="header">GALLERY</h1>
-<div class="container">
-<div class="searchbox-container">
-  <input class="searchbox" type="text" ng-model="searchText"> 
-  <div class="row">
-    <div class="col-md-6">
 
-      <div class="row" id="filters">
-        <div class="col-md-12">
-          <div class="btn-group" opt-kind ok-key="filter">
-            <button type='button' class='btn btn-default active' id:"filterActive" ok-sel="*">Show All</button>
-            <button type='button' class='btn btn-default' ok-sel=".painting">Painting</button>
-            <button type='button' class='btn btn-default' ok-sel=".sculpture">Sculpture</button>
-            <button type='button' class='btn btn-default' ok-sel=".mixedmedia">Mixed Media</button>
-            <button type='button' class='btn btn-default' ok-sel=".photography">Photography</button>
-            <button type='button' class='btn btn-default' ok-sel=".printmaking">Print Making</button>
-            <button type='button' class='btn btn-default' ok-sel=".other">Other</button>
-          </div>
-        </div>
-      </div>
+<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
+<div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Selector and Value-Based Sort</h4>
-          <div class="btn-group" opt-kind ok-key="sortBy">
-            <button type="button" class="btn btn-default" ok-sel=".artist">Artist</button>
-            <button type="button" class="btn btn-default" ok-sel=".piece_title">Title</button>
-            <button type="button" class="btn btn-default" ok-sel="piece.year" ok-type="integer">Year</button>
-          </div>
-        </div>
-      </div>
+<div id="filter-toolbar">
+  <div id="open-fiter-button" ng-click="showMenu()">Show Filters</div>
+</div>
 
-      <!-- ISOTOPECONTAINER -->
-      <div class="row">
-        <div id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
-            <div ng-repeat="piece in pieces">
-              <div class="name" name="{{piece.artist}}"></div>
-              <div class="year" year="{{piece.year}}"></div>
-              <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
-             <img class="tilePiece" src="{{piece.thumb_url[0]}}"/>
-          </div>
-        <div>
-      </div>
+
+<div id="filter-menu">
+
+  <div id="menu-inner">
+
+  <div id="menu-header">Filter Gallery</div>
+  <div id="menu-close" ng-click="hideMenu()">&times</div>
+  <br>
+  <hr>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('0')" />
+        Lithograph
+      </label>
     </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox"  ng-click="filterBy('1')" />
+        Mixed Media
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('2')" />
+        Painting
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('3')" />
+        Photograph
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('4')" />
+        Print
+      </label>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('5')" />
+        Sculpture
+      </label>
+    </div>
+
+    <a href="" ng-click="reverse=!reverse;order('piece_title', reverse)">A-Z</a>
+
   </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-6 piece-item" style="margin-bottom:20px;text-align:center" ng-repeat="piece in pieces | filter:searchText">
+    
+    <!--data for filtering; not shown-->
+    <!--<div class="name" name="{{piece.artist}}"></div>
+    <div class="year" year="{{piece.year}}"></div>-->
+    <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
+    <div class="title" data-medium="{{piece.piece_category}}" style="padding:0;"></div>
+    <!--end filter data-->
+    
+    <!--data that will be shown-->
+    <img class="tilePiece" src="{{piece.thumb_url[0]}}"/>
+    <div class="tileTitle">{{piece.piece_title}}</div>
+
+  </div>
+
 </div>
 

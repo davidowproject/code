@@ -60,11 +60,11 @@
 		var pieces = [];
 		var data = $.ajax({
 		  dataType: "json",
-		  url: "js/davidow.json",
+		  url: "js/data.json",
 		  success: function(){
 		  	$.each(data.responseJSON,function(){
 				//todo: add a placeholder image if there wasnt a url
-		  		if(this.piece_image != ""){
+		  		if(this.piece_image != "" && this.piece_image != undefined){
 		  			this.image_url = /http:.+?(?=.jpg)(....)/.exec(this.piece_image)[0];
 		  			this.thumb_url = this.piece_image.match(/image\d{1,2}.\d{3,4}x\d{3,4}..../g);
 		  			var currentPiece = this;
