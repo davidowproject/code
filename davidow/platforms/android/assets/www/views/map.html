@@ -1,10 +1,29 @@
-<h1 class="header">MAP</h2>
+<style>
+	.tile-piece, .tile-piece img{
+		height: 125px;
+		width:125px;
+		display: inline-block;
+	}
+	#slider{
+		overflow-x:scroll;
+		overflow-y:hidden;
+		white-space: nowrap;
+		position: fixed;
+		width:100%;
+	}
+	object{
+		width:2000px;
+	}
+</style>
 
-<div class="pagination">
-                <ul>
-                    <li class="page" id="activepage"><a href="#">F1</a></li>
-                    <li class="page"><a href="#">F2</a></li>
-                    <li class="page"><a href="#">F3</a></li>
-                    <li class="page"><a href="#">F4</a></li>
-                </ul>
-            </div>
+<!--Slider-->
+<div id="slider">
+	<div class="tile-piece" ng-repeat="piece in pieces">
+		<img src="{{piece.thumb_url[0]}}" />
+	</div>
+</div>
+
+<!--map-->
+<object data="img/First_Floor.svg" type="image/svg+xml">
+
+</object>

@@ -29,7 +29,7 @@ app.config(function($routeProvider){
 	.when('/map', {
 
 		templateUrl: './views/map.html',
-		controller: 'mainController'
+		controller: 'map'
 
 	})
 
@@ -133,8 +133,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   	$scope.filterBy = function(medium){
   		window.shown[medium] = !window.shown[medium];
   		
-  		console.log(window.shown);
-
   		$(".piece-item").hide();
   		
   		if(window.shown[0]){
@@ -170,6 +168,17 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   		$("#filter-menu").show()
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
+
+}]);
+
+app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
+
+	window.scope = $scope;
+	$scope.pieces = pieces;
+	$scope.url = [];
+	for(var i = 0; i < pieces.length; i++){
+		$scope.url.push(pieces[i].image_URL);
+	}
 
 }]);
 
