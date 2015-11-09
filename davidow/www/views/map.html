@@ -10,9 +10,22 @@
 		white-space: nowrap;
 		position: fixed;
 		width:100%;
+		background: white;
+	    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.43);	
+	}
+	#map-container{
+		padding-top: 125px;
 	}
 	object{
 		width:2000px;
+	}
+	.zoomed{
+		width:100% !important;
+	}
+	#zoom{
+		position: fixed;
+		right: 20px;
+		bottom: 80px;
 	}
 </style>
 
@@ -23,7 +36,14 @@
 	</div>
 </div>
 
-<!--map-->
-<object data="img/First_Floor.svg" type="image/svg+xml">
+<!--zoom-->
+<div id="zoom">Zoom Out</div>
 
-</object>
+<!--map-->
+<div id="map-container">
+	
+	<object data="img/First_Floor.svg" type="image/svg+xml">
+
+	</object>
+
+</div>

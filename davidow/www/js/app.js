@@ -180,6 +180,16 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$scope.url.push(pieces[i].image_URL);
 	}
 
+	$("#zoom").on("click",function(){
+		$("object").toggleClass("zoomed");
+		if(!$("object").hasClass("zoomed")){
+			$("body").scrollTop(400).scrollLeft(700)
+			$("#zoom").html("Zoom Out")
+		}else{
+			$("#zoom").html("Zoom In")
+		}
+	})
+
 }]);
 
 app.controller('explore', ['$scope', '$location', '$log', function($scope, $location, $log){
