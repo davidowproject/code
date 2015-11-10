@@ -160,14 +160,30 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   	}
 
   	$scope.hideMenu = function(){
-  		$("#filter-menu").hide()
+  		console.log('hit')
+  		$("#filter-menu").removeClass("webkit-fade")
+  		
+  		setTimeout(function(){ 
+  			$("#filter-menu").css("display","none")
+  		}, 300);
+  		
   		$("*").css("overflow-y","initial").css("overflow-x","initial")
   	}
 
   	$scope.showMenu = function(){
-  		$("#filter-menu").show()
+  		$("#filter-menu").css("display","block")
+  		$("#filter-menu").addClass("webkit-fade")
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
+
+
+  	/*animate*/
+  	$(".searchbox").focusin(function(){
+  		$("#search-icon span").addClass("rotate");
+  	})
+  	$(".searchbox").focusout(function(){
+  		$("#search-icon span").removeClass("rotate");
+  	})
 
 }]);
 

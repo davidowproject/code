@@ -134,40 +134,65 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   		window.shown[medium] = !window.shown[medium];
   		
   		$(".piece-item").hide();
-  		
+
+  		$("#active-filters").empty()
+	  		
   		if(window.shown[0]){
   			$(".piece-item div[data-medium='lithograph']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Lithograph</span>")
   		}
   		if(window.shown[1]){
   			$(".piece-item div[data-medium='mixed media']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Mixed Media</span>")
   		}
   		if(window.shown[2]){
   			$(".piece-item div[data-medium='painting']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Painting</span>")
   		}
   		if(window.shown[3]){
   			$(".piece-item div[data-medium='photograph']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Photograph</span>")
   		}
   		if(window.shown[4]){
   			$(".piece-item div[data-medium='print']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Print</span>")
   		}
   		if(window.shown[5]){
   			$(".piece-item div[data-medium='sculpture']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Sculpture</span>")
   		}
   		if(window.shown[0] == false && window.shown[1] == false && window.shown[2] == false && window.shown[3] == false && window.shown[4] == false && window.shown[5] == false){
 	  		$(".piece-item").show();
+	  		$("#active-filters").html("Showing all pieces")
   		}
 
   	}
 
   	$scope.hideMenu = function(){
-  		$("#filter-menu").hide()
+  		console.log('hit')
+  		$("#filter-menu").removeClass("webkit-fade")
+  		
+  		setTimeout(function(){ 
+  			$("#filter-menu").css("display","none")
+  		}, 300);
+  		
   		$("*").css("overflow-y","initial").css("overflow-x","initial")
   	}
 
   	$scope.showMenu = function(){
-  		$("#filter-menu").show()
+  		$("#filter-menu").css("display","block")
+  		$("#filter-menu").addClass("webkit-fade")
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
+
+
+  	/*animate*/
+  	$(".searchbox").focusin(function(){
+  		$("#search-icon span").addClass("rotate");
+  	})
+  	$(".searchbox").focusout(function(){
+  		$("#search-icon span").removeClass("rotate");
+  	})
 
 }]);
 

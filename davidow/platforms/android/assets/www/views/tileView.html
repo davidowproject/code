@@ -7,6 +7,7 @@
   .tilePiece{
     height:150px;
     width: 150px;
+    box-shadow: 0 0 5px black;
   }
   .tileTitle{
     text-align: left;
@@ -36,13 +37,15 @@
     font-size: 26px;
     color: #AFAFAF;
     top: 16px;
-    right: 14px;
+    left: 14px;
+    transition: .3s;
   }
   #filter-menu a{
     color: #333;
   }
   #filter-menu{
     display: none;
+    -webkit-opacity: 0;
     min-height: 100%;
     min-width: 100%;
     background: rgba(0, 0, 0, 0.76);
@@ -51,6 +54,7 @@
     left: 0;
     z-index: 10;
     padding-top: 20%;
+    transition: .3s;
   }
   #menu-inner{
     background: white;
@@ -85,14 +89,22 @@
     margin: 0 !important;
   }
 
+  .rotate{
+    -webkit-transform: rotate(45deg)
+  }
+
+  .webkit-fade{
+    -webkit-opacity: 1 !important;
+  }
+
 </style>
 
 
-<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 <div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
+<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 
 <div id="filter-toolbar">
-  <div id="open-fiter-button" ng-click="showMenu()">Show Filters</div>
+  <div id="open-fiter-button" ng-click="showMenu()"><span class="glyphicon glyphicon-filter"></span></div>
 </div>
 
 

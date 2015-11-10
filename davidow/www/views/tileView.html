@@ -7,6 +7,7 @@
   .tilePiece{
     height:150px;
     width: 150px;
+    box-shadow: 0 0 5px black;
   }
   .tileTitle{
     text-align: left;
@@ -36,13 +37,15 @@
     font-size: 26px;
     color: #AFAFAF;
     top: 16px;
-    right: 14px;
+    left: 14px;
+    transition: .3s;
   }
   #filter-menu a{
     color: #333;
   }
   #filter-menu{
     display: none;
+    -webkit-opacity: 0;
     min-height: 100%;
     min-width: 100%;
     background: rgba(0, 0, 0, 0.76);
@@ -51,6 +54,7 @@
     left: 0;
     z-index: 10;
     padding-top: 20%;
+    transition: .3s;
   }
   #menu-inner{
     background: white;
@@ -62,9 +66,20 @@
   #filter-toolbar{
     height: 100%;
     width: 100%;
-    border-bottom: 1px solid black;
+    box-shadow: 0 0 4px black;
+    background: #FAFAFA;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 15px;
+  }
+
+  #filter-icon{
+    font-size: 20px;
+    margin-right: 12px;
+  }
+
+  #active-filters{
+    color: #CECECE;
   }
 
   hr{opacity: .2}
@@ -85,14 +100,23 @@
     margin: 0 !important;
   }
 
+  .rotate{
+    -webkit-transform: rotate(45deg)
+  }
+
+  .webkit-fade{
+    -webkit-opacity: 1 !important;
+  }
+
 </style>
 
 
-<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 <div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
+<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 
 <div id="filter-toolbar">
-  <div id="open-fiter-button" ng-click="showMenu()">Show Filters</div>
+  <span id="filter-icon" ng-click="showMenu()" class="glyphicon glyphicon-filter"></span>
+  <span id="active-filters">Showing all pieces</span>
 </div>
 
 
@@ -100,7 +124,7 @@
 
   <div id="menu-inner">
 
-  <div id="menu-header">Select a category to view</div>
+  <div id="menu-header">Filters</div>
   <div id="menu-close" ng-click="hideMenu()">&times</div>
   <br>
   <hr>
@@ -165,4 +189,6 @@
   </div>
 
 </div>
+
+<br><br><br><br>
 
