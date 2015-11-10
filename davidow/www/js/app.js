@@ -6,8 +6,8 @@ app.config(function($routeProvider){
 
 	.when('/', {
 
-		templateUrl: './views/gallery.html',
-		controller: 'gallery'
+		templateUrl: './views/tileView.html',
+		controller: 'tileView'
 
 	})
 
@@ -86,7 +86,6 @@ app.config(function($routeProvider){
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
-
 }]);
 
 
@@ -94,9 +93,7 @@ app.controller('gallery', ['$scope', '$location', '$log', function($scope, $loca
 
 	$scope.pieces = pieces;
 	
-	
 }]);
-
 
 app.controller('piece', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams){
 
@@ -121,6 +118,9 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 	for(var i = 0; i < pieces.length; i++){
 		$scope.url.push(pieces[i].image_URL);
 	}
+
+	$("body").scrollLeft(0)
+	$("body").scrollTop(0)
 
   	var orderBy = $filter('orderBy');
 
@@ -180,7 +180,6 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$scope.url.push(pieces[i].image_URL);
 	}
 
-
 	$("#zoom-in").on("mousedown",function(){
 		if($("object").width() != 3000){
 			
@@ -235,57 +234,5 @@ app.controller('explore', ['$scope', '$location', '$log', function($scope, $loca
 
 }]);
 
-
-app.controller('settings', ['$scope', '$location', '$log', function($scope, $location, $log){
-	$(document).ready(function(){
-		if(localStorage.theme == "dark"){
-			$("#dark").prop('checked', true);
-		}else{
-			$("#light").prop('checked', true);
-		}
-	});
-	$("#dark").change(function(){
-		if($(this).val() == "on"){
-			localStorage.setItem("theme", "dark");
-			$("link[href='css/stylesBlue.css']").remove();
-			$("link[href='css/masterLight.css']").remove();
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/master.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesYellow.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}
-	});
-	$("#light").change(function(){
-		if($(this).val() == "on"){
-			localStorage.setItem("theme", "light");
-			$("link[href='css/stylesYellow.css']").remove();
-			$("link[href='css/master.css']").remove();
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/masterLight.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesBlue.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}
-	});
-}]);
 
 
