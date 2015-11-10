@@ -180,13 +180,46 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$scope.url.push(pieces[i].image_URL);
 	}
 
-	$("#zoom").on("click",function(){
-		$("object").toggleClass("zoomed");
-		if(!$("object").hasClass("zoomed")){
-			$("body").scrollTop(400).scrollLeft(700)
-			$("#zoom").html("Zoom Out")
-		}else{
-			$("#zoom").html("Zoom In")
+
+	$("#zoom-in").on("mousedown",function(){
+		if($("object").width() != 3000){
+			
+			xPos = $("body").scrollLeft()
+			yPos = $("body").scrollTop()
+			
+			objWidth = $("object").width()
+			
+			xRatio = xPos / objWidth
+			yRatio = yPos / objWidth
+		
+			$("object").css("width", $("object").width() + 250)
+
+			newObjWidth = $("object").width()
+
+			$("body").scrollTop(newObjWidth * yRatio)
+			$("body").scrollLeft(newObjWidth * xRatio)
+
+
+		}
+	})
+	$("#zoom-out").on("mousedown",function(){
+		if($("object").width() != 250){
+
+			xPos = $("body").scrollLeft()
+			yPos = $("body").scrollTop()
+			
+			objWidth = $("object").width()
+			
+			xRatio = xPos / objWidth
+			yRatio = yPos / objWidth
+		
+			$("object").css("width", $("object").width() - 250);
+
+			newObjWidth = $("object").width()
+
+			$("body").scrollTop(newObjWidth * yRatio)
+			$("body").scrollLeft(newObjWidth * xRatio)
+
 		}
 	})
 

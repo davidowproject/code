@@ -19,13 +19,36 @@
 	object{
 		width:2000px;
 	}
-	.zoomed{
-		width:100% !important;
+
+	#zoom-in{
+	    position: fixed;
+	    right: 20px;
+	    bottom: 150px;
+	    font-size: 20px;
+	    background: #4FC5E7;
+	    height: 50px;
+	    width: 50px;
+	    margin: auto;
+	    text-align: center;
+	    border-radius: 50%;
+	    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
+	    color: white;
+	    padding-top: 11px;
 	}
-	#zoom{
+	#zoom-out{
 		position: fixed;
 		right: 20px;
 		bottom: 80px;
+		font-size: 20px;
+		background: #4FC5E7;
+		height: 50px;
+		width: 50px;
+		margin: auto;
+		text-align: center;
+		border-radius: 50%;
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
+		color: white;
+		padding-top: 11px;
 	}
 </style>
 
@@ -37,12 +60,13 @@
 </div>
 
 <!--zoom-->
-<div id="zoom">Zoom Out</div>
+<div id="zoom-in">+</div>
+<div id="zoom-out">-</div>
 
 <!--map-->
 <div id="map-container">
 	
-	<object data="img/First_Floor.svg" type="image/svg+xml">
+	<object data="img/F1.svg" type="image/svg+xml">
 
 	</object>
 
