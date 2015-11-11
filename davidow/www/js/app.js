@@ -124,7 +124,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
   	var orderBy = $filter('orderBy');
 
-  	window.shown = [false,false,false,false,false,false]
+  	window.shown = [false,false,false,false,false,false,false]
 
 	$scope.order = function(predicate, reverse) {
     	$scope.pieces = orderBy($scope.pieces, predicate, reverse);
@@ -143,7 +143,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   		}
   		if(window.shown[1]){
   			$(".piece-item div[data-medium='mixed media']").parent().show()
-  			$("#active-filters").append("<span class='filter'>Mixed Media</span>")
+  			$("#active-filters").append("<span class='filter'>Mixed&nbspMedia</span>")
   		}
   		if(window.shown[2]){
   			$(".piece-item div[data-medium='painting']").parent().show()
@@ -161,7 +161,11 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   			$(".piece-item div[data-medium='sculpture']").parent().show()
   			$("#active-filters").append("<span class='filter'>Sculpture</span>")
   		}
-  		if(window.shown[0] == false && window.shown[1] == false && window.shown[2] == false && window.shown[3] == false && window.shown[4] == false && window.shown[5] == false){
+  		if(window.shown[6]){
+  			$(".piece-item div[data-medium='sculpture']").parent().show()
+  			$("#active-filters").append("<span class='filter'>Z-A</span>")
+  		}
+  		if(window.shown[0] == false && window.shown[1] == false && window.shown[2] == false && window.shown[3] == false && window.shown[4] == false && window.shown[5] == false  && window.shown[6] == false){
 	  		$(".piece-item").show();
 	  		$("#active-filters").html("Showing all pieces")
   		}
@@ -169,7 +173,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   	}
 
   	$scope.hideMenu = function(){
-  		console.log('hit')
   		$("#filter-menu").removeClass("webkit-fade")
   		
   		setTimeout(function(){ 
@@ -184,7 +187,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   		$("#filter-menu").addClass("webkit-fade")
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
-
 
   	/*animate*/
   	$(".searchbox").focusin(function(){

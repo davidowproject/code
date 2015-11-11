@@ -39,9 +39,7 @@
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<script>
-
 		//Desktop testing for beacons
-		
         function onRange(foo)
 		{
 			$(".beacon").hide();
@@ -79,6 +77,16 @@
 		  		}
 		  		pieces.push(this);
 		  	})
+			//sort a-z
+			function compare(a,b) {
+				if (a.piece_title < b.piece_title)
+					return -1;
+				if (a.piece_title > b.piece_title)
+					return 1;
+				return 0;
+			}
+			pieces = pieces.sort(compare);
+			pieces.pop();
 		  }
 		});
 		//Click and swipe events
@@ -98,7 +106,6 @@
 				$(this).addClass("active-nav");
 			})
 		});
-
 	</script>
 	<!--Style Sheets-->
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>

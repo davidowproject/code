@@ -108,6 +108,14 @@
     -webkit-opacity: 1 !important;
   }
 
+  .filter{
+    color: #333;
+    padding: 4px 10px;
+    background: #E1DFDF;
+    border-radius: 6px;
+    margin-right: 12px;
+  }
+
 </style>
 
 
@@ -171,7 +179,12 @@
       </label>
     </div>
 
-    <a href="" ng-click="reverse=!reverse;order('piece_title', reverse)">A-Z</a>
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('6');reverse=!reverse;order('piece_title', reverse)" />
+        Z-A
+      </label>
+    </div>
 
   </div>
 
