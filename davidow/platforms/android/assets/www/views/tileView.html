@@ -66,9 +66,20 @@
   #filter-toolbar{
     height: 100%;
     width: 100%;
-    border-bottom: 1px solid black;
+    box-shadow: 0 0 4px black;
+    background: #FAFAFA;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 15px;
+  }
+
+  #filter-icon{
+    font-size: 20px;
+    margin-right: 12px;
+  }
+
+  #active-filters{
+    color: #CECECE;
   }
 
   hr{opacity: .2}
@@ -97,6 +108,14 @@
     -webkit-opacity: 1 !important;
   }
 
+  .filter{
+    color: #333;
+    padding: 4px 10px;
+    background: #E1DFDF;
+    border-radius: 6px;
+    margin-right: 12px;
+  }
+
 </style>
 
 
@@ -104,7 +123,8 @@
 <input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 
 <div id="filter-toolbar">
-  <div id="open-fiter-button" ng-click="showMenu()"><span class="glyphicon glyphicon-filter"></span></div>
+  <span id="filter-icon" ng-click="showMenu()" class="glyphicon glyphicon-filter"></span>
+  <span id="active-filters">Showing all pieces</span>
 </div>
 
 
@@ -112,7 +132,7 @@
 
   <div id="menu-inner">
 
-  <div id="menu-header">Select a category to view</div>
+  <div id="menu-header">Filters</div>
   <div id="menu-close" ng-click="hideMenu()">&times</div>
   <br>
   <hr>
@@ -159,7 +179,12 @@
       </label>
     </div>
 
-    <a href="" ng-click="reverse=!reverse;order('piece_title', reverse)">A-Z</a>
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('6');reverse=!reverse;order('piece_title', reverse)" />
+        Z-A
+      </label>
+    </div>
 
   </div>
 
@@ -177,4 +202,6 @@
   </div>
 
 </div>
+
+<br><br><br><br>
 

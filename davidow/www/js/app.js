@@ -139,7 +139,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 	  		
   		if(window.shown[0]){
   			$(".piece-item div[data-medium='lithograph']").parent().show()
-  			$("#active-filters").append("<span class='filter'><span ng-click='filterBy('0')' class='x'>&times</span> Lithograph</span>")
+  			$("#active-filters").append("<span class='filter'>Lithograph</span>")
   		}
   		if(window.shown[1]){
   			$(".piece-item div[data-medium='mixed media']").parent().show()
@@ -184,7 +184,12 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
   	$scope.showMenu = function(){
   		$("#filter-menu").css("display","block")
-  		$("#filter-menu").addClass("webkit-fade")
+  		$("#filter-menu").css("opactiy","0")
+
+  		setTimeout(function(){ 
+	  		$("#filter-menu").addClass("webkit-fade")
+  		}, 100);
+  	
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
 
