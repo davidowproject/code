@@ -139,7 +139,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 	  		
   		if(window.shown[0]){
   			$(".piece-item div[data-medium='lithograph']").parent().show()
-  			$("#active-filters").append("<span class='filter'>Lithograph</span>")
+  			$("#active-filters").append("<span class='filter'><span ng-click='filterBy('0')' class='x'>&times</span> Lithograph</span>")
   		}
   		if(window.shown[1]){
   			$(".piece-item div[data-medium='mixed media']").parent().show()
