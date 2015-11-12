@@ -40,20 +40,28 @@
 
 	<script>
 		//Desktop testing for beacons
+		/*
         function onRange(foo)
 		{
 			$(".beacon").hide();
 			var c;
-				$.each(pieces, function(i, v){
-				if(foo == v.beaconID) c = v;
+			var pos;
+			$.each(pieces, function(i, v){
+				if(foo == v.beaconID){
+					c = v;
+					pos = i;	
+				} 
 			})
 			if(window.location.href.indexOf('explore') > -1){
 				window.location.hash = "/piece/" + c.id;
 			}else if(window.location.href.indexOf('gallery') > -1){
 				console.log($(".row:contains(" + c.piece_title + ")"));
 				$(".row:contains(" + c.piece_title + ") .beacon").show();
+			}else if(window.location.href.indexOf('map') > -1){
+				$("#slider").animate({scrollLeft: 125 * pos - 125}, 400);
 			}
 		}
+		*/
 		//Data setup
 		var pieces = [];
 		var data = $.ajax({

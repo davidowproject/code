@@ -1,6 +1,7 @@
 [
     {
         "id": "1",
+        "beaconID":"1002",
         "collection": "davidow",
         "collection_number": "1",
         "piece_title": "Exquisite Corpse",
@@ -21,6 +22,7 @@
     },
     {
         "id": "5",
+        "beaconID":"1003",
         "collection": "davidow",
         "collection_number": "2",
         "piece_title": "Texas Sky",
