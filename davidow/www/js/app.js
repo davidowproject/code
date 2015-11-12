@@ -217,7 +217,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 	}
 
 	$("#zoom-in").on("mousedown",function(){
-		if($("object").width() != 3000){
+		if($("object").width() < 1500){
 			
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
@@ -227,7 +227,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() + 250)
+			$("object").css("width", $("object").width() + 150)
 
 			newObjWidth = $("object").width()
 
@@ -238,7 +238,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		}
 	})
 	$("#zoom-out").on("mousedown",function(){
-		if($("object").width() != 250){
+		if($("object").width() > 500){
 
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
@@ -248,7 +248,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() - 250);
+			$("object").css("width", $("object").width() - 150);
 
 			newObjWidth = $("object").width()
 
