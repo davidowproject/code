@@ -112,6 +112,8 @@ app.controller('piece', ['$scope', '$location', '$routeParams', function($scope,
 
 app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
 
+
+
 	window.scope = $scope;
 	$scope.pieces = pieces;
 	$scope.url = [];
@@ -204,6 +206,8 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 }]);
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
+
+	$("body").scrollLeft(50)
 
 	window.scope = $scope;
 	$scope.pieces = pieces;
