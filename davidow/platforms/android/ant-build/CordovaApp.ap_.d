@@ -59,6 +59,7 @@ C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\fonts\
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\explore.png \
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\F1.svg \
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\First_Floor.svg \
+C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\Floor_1.svg \
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\gallery.png \
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\joandavidow.png \
 C:\Users\Dylan\Documents\GitHub\code\davidow\platforms\android\assets\www\img\logo.png \
