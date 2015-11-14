@@ -2,6 +2,9 @@
 	::-webkit-scrollbar { 
 	    display: none; 
 	}
+	.tile-piece{
+		transition: .5s;
+	}
 	.tile-piece, .tile-piece img{
 		height: 125px;
 		width:125px;
@@ -20,8 +23,10 @@
 		padding-top: 125px;
 	}
 	object{
-		width:500px;
+		width:100%;
+		padding: 0 10px;
 		-webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+		margin-bottom: 100px;
 	}
 
 	#zoom-in{
@@ -54,6 +59,10 @@
 		color: white;
 		padding-top: 11px;
 	}
+
+  	.faded{
+    	-webkit-opacity: .2;
+	  }
 </style>
 
 <!--Slider-->
@@ -70,7 +79,7 @@
 <!--map-->
 <div id="map-container">
 	
-	<object data="img/Floor_1.svg" type="image/svg+xml">
+	<object data="img/Floors.svg" type="image/svg+xml">
 
 	</object>
 

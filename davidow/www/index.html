@@ -40,7 +40,6 @@
 
 	<script>
 		//Desktop testing for beacons
-		/*
         function onRange(foo)
 		{
 			$(".beacon").hide();
@@ -58,10 +57,14 @@
 				console.log($(".row:contains(" + c.piece_title + ")"));
 				$(".row:contains(" + c.piece_title + ") .beacon").show();
 			}else if(window.location.href.indexOf('map') > -1){
+				/*scroll to piece, fade all other pieces*/
 				$("#slider").animate({scrollLeft: 125 * pos - 125}, 400);
+				setTimeout(function(){
+					$(".tile-piece").addClass("faded");
+					$($(".tile-piece")[pos]).removeClass("faded");
+				}, 400);
 			}
 		}
-		*/
 		//Data setup
 		var pieces = [];
 		var data = $.ajax({
