@@ -78,12 +78,9 @@
 			  			$.each(this.thumb_url, function(i, v){
 			  				currentPiece.thumb_url[i] =  /http:.+?(?=.image\d{1,2})/.exec(currentPiece.image_url)[0] + "/" + currentPiece.thumb_url[i];
 			  			})
+		  				pieces.push(this);
 		  			}
-		  		}else{
-		  			this.piece_image == "";
-		  			this.thumb_url == "";
 		  		}
-		  		pieces.push(this);
 		  	})
 			//sort a-z
 			function compare(a,b) {
