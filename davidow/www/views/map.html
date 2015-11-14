@@ -62,7 +62,34 @@
 
   	.faded{
     	-webkit-opacity: .2;
-	  }
+  	}
+  	#piece-title{
+  		-webkit-opacity: 0;
+  		transition: .5s;
+	    position: fixed;
+	    top: 125px;
+	    padding: 5px 20px;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.58);
+	    color: white;
+	    letter-spacing: 1px;
+	    text-align: center;
+  	}
+  	#piece-next,#piece-prev{
+	    position: fixed;
+    	top: 112px;
+    	font-size: 40px;
+    	z-index: 9999;
+    	color: white;
+    	-webkit-opacity:0;
+    	transition: .5s;
+  	}
+  	#piece-next{
+  		right:15px;
+  	}
+  	#piece-prev{
+  		left: 15px;
+  	}
 </style>
 
 <!--Slider-->
@@ -71,6 +98,10 @@
 		<img src="{{piece.thumb_url[0]}}" />
 	</div>
 </div>
+<div id="piece-title"></div>
+<div id="piece-next">></div>
+<div id="piece-prev"><</div>
+
 
 <!--zoom-->
 <div id="zoom-in">+</div>

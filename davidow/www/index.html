@@ -62,6 +62,9 @@
 				setTimeout(function(){
 					$(".tile-piece").addClass("faded");
 					$($(".tile-piece")[pos]).removeClass("faded");
+					$("#piece-title").css('-webkit-opacity', '1').html(c.piece_title);
+					$("#piece-prev").css('-webkit-opacity', '1');
+					$("#piece-next").css('-webkit-opacity', '1');
 				}, 400);
 			}
 		}
