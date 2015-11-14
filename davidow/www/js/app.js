@@ -88,7 +88,6 @@ app.controller('mainController', ['$scope', '$location', '$log', function($scope
 
 }]);
 
-
 app.controller('gallery', ['$scope', '$location', '$log', function($scope, $location, $log){
 
 	$scope.pieces = pieces;
@@ -111,8 +110,6 @@ app.controller('piece', ['$scope', '$location', '$routeParams', function($scope,
 }]);
 
 app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
-
-
 
 	window.scope = $scope;
 	$scope.pieces = pieces;
@@ -207,8 +204,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
 
-	$("body").scrollLeft(50)
-
 	window.scope = $scope;
 	$scope.pieces = pieces;
 	$scope.url = [];
@@ -216,8 +211,11 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$scope.url.push(pieces[i].image_URL);
 	}
 
+	window.baseWidth = $("object").width()
+
+
 	$("#zoom-in").on("mousedown",function(){
-		if($("object").width() < 1500){
+		if($("object").width() < 1000){
 			
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
@@ -227,7 +225,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() + 150)
+			$("object").css("width", $("object").width() + 100)
 
 			newObjWidth = $("object").width()
 
@@ -238,7 +236,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		}
 	})
 	$("#zoom-out").on("mousedown",function(){
-		if($("object").width() > 500){
+		if($("object").width() > baseWidth){
 
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
@@ -248,7 +246,10 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() - 150);
+			newObjWidth = $("object").width() - 100;
+			if(newObjWidth < baseWidth)newObjWidth = baseWidth;
+
+			$("object").css("width", newObjWidth);
 
 			newObjWidth = $("object").width()
 
