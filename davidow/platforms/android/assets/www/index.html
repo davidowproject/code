@@ -40,28 +40,43 @@
 
 	<script>
 		//Desktop testing for beacons
-		/*
-        function onRange(foo)
+		var activeBeacons = [];
+		var activePosition = 0;
+        function onRange(beacons)
 		{
-			$(".beacon").hide();
-			var c;
-			var pos;
-			$.each(pieces, function(i, v){
-				if(foo == v.beaconID){
-					c = v;
-					pos = i;	
-				} 
-			})
-			if(window.location.href.indexOf('explore') > -1){
-				window.location.hash = "/piece/" + c.id;
-			}else if(window.location.href.indexOf('gallery') > -1){
-				console.log($(".row:contains(" + c.piece_title + ")"));
-				$(".row:contains(" + c.piece_title + ") .beacon").show();
-			}else if(window.location.href.indexOf('map') > -1){
-				$("#slider").animate({scrollLeft: 125 * pos - 125}, 400);
+			activeBeacons = [];
+			activePosition = 0;
+			if(beacons.length != 0){
+				$("#slider").css("overflow-x","hidden");
+			}else{
+				$(".tile-piece").removeClass("faded");
+				$("#slider").css("overflow-x","scroll");
+				$("#piece-title").css('-webkit-opacity', '0').html("");
+				$("#piece-prev").css('-webkit-opacity', '0');
+				$("#piece-next").css('-webkit-opacity', '0');
 			}
+			/*compose list of active beacons for cycling*/
+			$.each(beacons, function(beaconNumber,beaconID){
+				$(".beacon").hide();
+				var c;
+				var pos;
+				$.each(pieces, function(i, v){
+					if(beaconID == v.beaconID){
+						activeBeacons.push({piece: v, position: i})
+					} 
+				})
+			})
+			/*set slider to first beacon*/
+			activePosition = 0;
+			$("#slider").animate({scrollLeft: 125 * activeBeacons[0].position - 125}, 400);
+			setTimeout(function(){
+				$(".tile-piece").addClass("faded");
+				$($(".tile-piece")[activeBeacons[0].position]).removeClass("faded");
+				$("#piece-title").css('-webkit-opacity', '1').html(activeBeacons[0].piece.piece_title);
+				$("#piece-prev").css('-webkit-opacity', '1');
+				$("#piece-next").css('-webkit-opacity', '1');
+			}, 400);
 		}
-		*/
 		//Data setup
 		var pieces = [];
 		var data = $.ajax({
@@ -78,12 +93,9 @@
 			  			$.each(this.thumb_url, function(i, v){
 			  				currentPiece.thumb_url[i] =  /http:.+?(?=.image\d{1,2})/.exec(currentPiece.image_url)[0] + "/" + currentPiece.thumb_url[i];
 			  			})
+		  				pieces.push(this);
 		  			}
-		  		}else{
-		  			this.piece_image == "";
-		  			this.thumb_url == "";
 		  		}
-		  		pieces.push(this);
 		  	})
 			//sort a-z
 			function compare(a,b) {

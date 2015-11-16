@@ -74,8 +74,10 @@
   }
 
   #filter-icon{
-    font-size: 20px;
+    color:#505050;
+    font-size: 16px;
     margin-right: 12px;
+    border-right: 1px solid #C9C9C9;
   }
 
   #active-filters{
@@ -114,6 +116,17 @@
     background: #E1DFDF;
     border-radius: 6px;
     margin-right: 12px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  input[type="checkbox"]{
+    margin-right: 10px;
+  }
+
+  #filter-icon.col-xs-2,
+  #active-filters.col-xs-9{
+    padding-left:0;
   }
 
 </style>
@@ -122,9 +135,9 @@
 <div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
 <input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
 
-<div id="filter-toolbar" ng-click="showMenu()">
-  <span id="filter-icon" class="glyphicon glyphicon-filter"></span>
-  <span id="active-filters">Showing all pieces</span>
+<div id="filter-toolbar" class="row" ng-click="showMenu()">
+  <div class="col-xs-2" id="filter-icon">Filters</div>
+  <div class="col-xs-9"id="active-filters">Showing all pieces</div>
 </div>
 
 
@@ -189,6 +202,8 @@
   </div>
 
 </div>
+
+<br>
 
 <div class="row">
 

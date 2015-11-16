@@ -88,7 +88,6 @@ app.controller('mainController', ['$scope', '$location', '$log', function($scope
 
 }]);
 
-
 app.controller('gallery', ['$scope', '$location', '$log', function($scope, $location, $log){
 
 	$scope.pieces = pieces;
@@ -111,8 +110,6 @@ app.controller('piece', ['$scope', '$location', '$routeParams', function($scope,
 }]);
 
 app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
-
-
 
 	window.scope = $scope;
 	$scope.pieces = pieces;
@@ -207,8 +204,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
 
-	$("body").scrollLeft(50)
-
 	window.scope = $scope;
 	$scope.pieces = pieces;
 	$scope.url = [];
@@ -216,20 +211,52 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$scope.url.push(pieces[i].image_URL);
 	}
 
+	window.baseWidth = $("object").outerWidth()
+
+
+	$("#piece-next").click(function(){
+		if(activePosition != activeBeacons.length - 1){
+			activePosition++;
+			$("#slider").animate({scrollLeft: 125 * activeBeacons[activePosition].position - 125}, 400);
+			setTimeout(function(){
+				$(".tile-piece").addClass("faded");
+				$($(".tile-piece")[activeBeacons[activePosition].position]).removeClass("faded");
+				$("#piece-title").css('-webkit-opacity', '1').html(activeBeacons[activePosition].piece.piece_title);
+				$("#piece-prev").css('-webkit-opacity', '1');
+				$("#piece-next").css('-webkit-opacity', '1');
+			}, 400);
+		}
+	})
+
+	$("#piece-prev").click(function(){
+		if(activePosition != 0){
+			activePosition--;
+			$("#slider").animate({scrollLeft: 125 * activeBeacons[activePosition].position - 125}, 400);
+			setTimeout(function(){
+				$(".tile-piece").addClass("faded");
+				$($(".tile-piece")[activeBeacons[activePosition].position]).removeClass("faded");
+				$("#piece-title").css('-webkit-opacity', '1').html(activeBeacons[activePosition].piece.piece_title);
+				$("#piece-prev").css('-webkit-opacity', '1');
+				$("#piece-next").css('-webkit-opacity', '1');
+			}, 400);
+		}
+	})
+
+
 	$("#zoom-in").on("mousedown",function(){
-		if($("object").width() != 3000){
+		if($("object").outerWidth() < 1000){
 			
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
 			
-			objWidth = $("object").width()
+			objWidth = $("object").outerWidth()
 			
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() + 250)
+			$("object").css("width", $("object").outerWidth() + 100)
 
-			newObjWidth = $("object").width()
+			newObjWidth = $("object").outerWidth()
 
 			$("body").scrollTop(newObjWidth * yRatio)
 			$("body").scrollLeft(newObjWidth * xRatio)
@@ -238,19 +265,22 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		}
 	})
 	$("#zoom-out").on("mousedown",function(){
-		if($("object").width() != 250){
+		if($("object").outerWidth() > baseWidth){
 
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
 			
-			objWidth = $("object").width()
+			objWidth = $("object").outerWidth()
 			
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").width() - 250);
+			newObjWidth = $("object").outerWidth() - 100;
+			if(newObjWidth < baseWidth)newObjWidth = baseWidth;
 
-			newObjWidth = $("object").width()
+			$("object").css("width", newObjWidth);
+
+			newObjWidth = $("object").outerWidth()
 
 			$("body").scrollTop(newObjWidth * yRatio)
 			$("body").scrollLeft(newObjWidth * xRatio)

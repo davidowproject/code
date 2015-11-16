@@ -2,6 +2,9 @@
 	::-webkit-scrollbar { 
 	    display: none; 
 	}
+	.tile-piece{
+		transition: .5s;
+	}
 	.tile-piece, .tile-piece img{
 		height: 125px;
 		width:125px;
@@ -20,7 +23,10 @@
 		padding-top: 125px;
 	}
 	object{
-		width:500px;
+		width:100%;
+		padding: 0 10px;
+		-webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+		margin-bottom: 100px;
 	}
 
 	#zoom-in{
@@ -53,6 +59,47 @@
 		color: white;
 		padding-top: 11px;
 	}
+
+  	.faded{
+    	-webkit-opacity: .2;
+  	}
+  	#piece-title{
+  		-webkit-opacity: 0;
+  		transition: .5s;
+	    position: fixed;
+	    top: 125px;
+	    padding: 5px 20px;
+	    width: 100%;
+	    background: rgba(0, 0, 0, 0.58);
+	    color: white;
+	    letter-spacing: 1px;
+	    text-align: center;
+  	}
+  	#piece-next,#piece-prev{
+	    position: fixed;
+    	top: 130px;
+    	font-size: 40px;
+    	z-index: 9999;
+    	color: white;
+    	-webkit-opacity:0;
+    	transition: .5s;
+  	}
+  	#piece-next{
+  		right:15px;
+		width: 0; 
+		height: 0; 
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 20px solid white;
+  	}
+  	#piece-prev{
+  		left: 15px;
+		width: 0; 
+		height: 0; 
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent; 
+		border-right:20px solid white; 
+  	}
 </style>
 
 <!--Slider-->
@@ -61,6 +108,10 @@
 		<img src="{{piece.thumb_url[0]}}" />
 	</div>
 </div>
+<div id="piece-title"></div>
+<div id="piece-next"></div>
+<div id="piece-prev"></div>
+
 
 <!--zoom-->
 <div id="zoom-in">+</div>
@@ -69,7 +120,7 @@
 <!--map-->
 <div id="map-container">
 	
-	<object data="img/Floor_1.svg" type="image/svg+xml">
+	<object data="img/Floors.svg" type="image/svg+xml">
 
 	</object>
 
