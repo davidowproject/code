@@ -77,7 +77,7 @@
   	}
   	#piece-next,#piece-prev{
 	    position: fixed;
-    	top: 112px;
+    	top: 130px;
     	font-size: 40px;
     	z-index: 9999;
     	color: white;
@@ -86,9 +86,19 @@
   	}
   	#piece-next{
   		right:15px;
+		width: 0; 
+		height: 0; 
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 20px solid white;
   	}
   	#piece-prev{
   		left: 15px;
+		width: 0; 
+		height: 0; 
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent; 
+		border-right:20px solid white; 
   	}
 </style>
 
@@ -99,8 +109,8 @@
 	</div>
 </div>
 <div id="piece-title"></div>
-<div id="piece-next">></div>
-<div id="piece-prev"><</div>
+<div id="piece-next"></div>
+<div id="piece-prev"></div>
 
 
 <!--zoom-->

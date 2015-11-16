@@ -43,6 +43,7 @@
     },
     {
         "id": "8",
+        "beaconID":"1004",
         "collection": "davidow",
         "collection_number": "20",
         "piece_title": "White box",
