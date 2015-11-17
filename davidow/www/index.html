@@ -13,6 +13,7 @@
 
 	<!--jquery & angular scripts are loaded before any other scripts that depend on them-->
 	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/jquery.svg.min.js"></script>
 	<script src="js/angular.min.js"></script>
 
 	<!--Routing and animations-->
@@ -147,76 +148,6 @@
     <a href="#tileView"><img class="nav-icon active-nav" src="img/gallery.png"></a>
 </div>
 
-<!--
-<div class="circle-nav-container">
-<button class="menu-btn" id="cn-button"></button>
-    <div class="circle-nav-wrapper" id="circle-nav-wrapper">
-<ul>
-    <li><a href="#/gallery"><span><img class="nav-icon active-nav circle-nav" src="img/gallery-alt.png"></a></span></li>
-    <li><a href="#/explore"><span><img class="nav-icon active-nav circle-nav" src="img/binoculars-alt.png"></a></span></li>
-    </ul>
-    </div>
-</div>
--->
+<script src="js/polyfills.js"></script>
 
-<style>
-	.nav-icon{-webkit-filter:brightness(100);}
-	.active-nav{-webkit-filter:none !important;}
-    .menu-btn{
-	    height: 4.5em;
-	    width: 4.5em;
-	    background: url(img/davidow-icon-alt.png)57% no-repeat;
-	    border-radius: 50%;
-	    background-size: 51%;
-	    position: fixed;
-	    background-color: #3b3c3e;
-	    bottom: 5.5em;
-	    right: 1em;
-	    box-shadow: 3px 3px 6px -2px rgba(7,7,7,0.5);
-	    border:none;
-    }
-</style>
-    
-    <script>(function(){
-
-	var button = document.getElementById('cn-button'),
-    wrapper = document.getElementById('circle-nav-wrapper');
-   
-
-	//open and close menu when the button is clicked
-	var open = false;
-	button.addEventListener('click', handler, false);
-	wrapper.addEventListener('click', cnhandle, false);
-
-	function cnhandle(e){
-		e.stopPropagation();
-	}
-
-	function handler(e){
-		if (!e) var e = window.event;
-	 	e.stopPropagation();//so that it doesn't trigger click event on document
-
-	  	if(!open){
-	    	openNav();
-	  	}
-	 	else{
-	    	closeNav();
-	  	}
-	}
-	function openNav(){
-		open = true;
-	    button.innerHTML = "-";
-	    classie.add(wrapper, 'opened-nav');
-	}
-	function closeNav(){
-		open = false;
-		button.innerHTML = "+";
-		classie.remove(wrapper, 'opened-nav');
-	}
-	document.addEventListener('click', closeNav);
-
-})();
-
-</script>
-    <script src="js/polyfills.js"></script>
 </html>

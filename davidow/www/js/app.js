@@ -213,7 +213,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 
 	window.baseWidth = $("object").outerWidth()
 
-
+	/*cycle through active pieces*/
 	$("#piece-next").click(function(){
 		if(activePosition != activeBeacons.length - 1){
 			activePosition++;
@@ -243,6 +243,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 	})
 
 
+	/*zoom*/
 	$("#zoom-in").on("mousedown",function(){
 		if($("object").outerWidth() < 1000){
 			
@@ -264,6 +265,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 
 		}
 	})
+
 	$("#zoom-out").on("mousedown",function(){
 		if($("object").outerWidth() > baseWidth){
 
@@ -287,6 +289,18 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 
 		}
 	})
+
+	$($("#Artworks circle")[0]).css("fill","red")
+
+	/*svg*/
+    $("#svgload").svg({
+        onLoad: function()
+            {
+            var svg = $("#svgload").svg('get');
+            svg.load('./img/Floors.svg', {addTo: true,  changeSize: false});        
+            },
+        settings: {}}
+    );  
 
 }]);
 
