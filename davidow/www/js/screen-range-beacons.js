@@ -41,7 +41,7 @@
 
 			if(window.location.href.indexOf('map')>-1){
 
-				if(new Date().getTime() - lastTimeWithBeacons > 15000 && activeBeacons.length > 0){
+				if(new Date().getTime() - lastTimeWithBeacons > 15000 && activeBeacons.length > 0 || activeBeacons.length == 0){
 					$(".tile-piece").addClass("faded");
 					clearInterval(aniLoop1);
 					clearInterval(aniLoop2);
@@ -58,6 +58,8 @@
 								}
 								
 							},1000)
+						}else{
+							$($("#Artworks circle")[0]).attr("class","normal")
 						}
 						if(v.piece.beaconID == "1003" && aniLoop2 == 0){
 							aniLoop2 = setInterval(function(){
@@ -69,6 +71,8 @@
 								}
 								
 							},1000)
+						}else{
+							$($("#Artworks circle")[1]).attr("class","normal")
 						}
 					})
 					lastTimeWithBeacons = new Date().getTime();
