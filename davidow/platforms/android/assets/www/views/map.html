@@ -23,9 +23,7 @@
 		padding-top: 125px;
 	}
 	object{
-		width:100%;
 		padding: 0 10px;
-		-webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
 		margin-bottom: 100px;
 	}
 
@@ -100,11 +98,22 @@
 		border-bottom: 10px solid transparent; 
 		border-right:20px solid white; 
   	}
+
+
+  	.found{
+  		fill: red;
+  		transition: 1s;
+  	}
+  	.normal{
+  		fill: #4FC5E7;
+  		transition: 1s;
+  	}
+
 </style>
 
 <!--Slider-->
 <div id="slider">
-	<div class="tile-piece" ng-repeat="piece in pieces">
+	<div class="tile-piece" ng-repeat="piece in pieces | orderBy : floor">
 		<img src="{{piece.thumb_url[0]}}" />
 	</div>
 </div>
@@ -118,10 +127,11 @@
 <div id="zoom-out">-</div>
 
 <!--map-->
-<div id="map-container">
-	
-	<object data="img/Floors.svg" type="image/svg+xml">
 
-	</object>
+<!--
+<object data="img/Floors.svg" type="image/svg+xml"></object>
+-->
 
-</div>
+<object id="svgload"></object>
+
+<br><br><br><br><br>

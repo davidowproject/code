@@ -245,19 +245,20 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 
 	/*zoom*/
 	$("#zoom-in").on("mousedown",function(){
-		if($("object").outerWidth() < 1000){
+		if($("svg").outerWidth() < 1000){
 			
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
 			
-			objWidth = $("object").outerWidth()
+			objWidth = $("svg").outerWidth()
 			
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			$("object").css("width", $("object").outerWidth() + 100)
+			$("svg").attr("width", $("svg").outerWidth() + 100)
+			$("svg").attr("height", $("svg").outerHeight() + 200)
 
-			newObjWidth = $("object").outerWidth()
+			newObjWidth = $("svg").outerWidth()
 
 			$("body").scrollTop(newObjWidth * yRatio)
 			$("body").scrollLeft(newObjWidth * xRatio)
@@ -267,22 +268,25 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 	})
 
 	$("#zoom-out").on("mousedown",function(){
-		if($("object").outerWidth() > baseWidth){
+		if($("svg").outerWidth() > baseWidth){
 
 			xPos = $("body").scrollLeft()
 			yPos = $("body").scrollTop()
 			
-			objWidth = $("object").outerWidth()
+			objWidth = $("svg").outerWidth()
 			
 			xRatio = xPos / objWidth
 			yRatio = yPos / objWidth
 		
-			newObjWidth = $("object").outerWidth() - 100;
+			newObjWidth = $("svg").outerWidth() - 100;
+			$("svg").attr("height", $("svg").outerHeight() - 200)
+
+
 			if(newObjWidth < baseWidth)newObjWidth = baseWidth;
 
-			$("object").css("width", newObjWidth);
+			$("svg").attr("width", newObjWidth);
 
-			newObjWidth = $("object").outerWidth()
+			newObjWidth = $("svg").outerWidth()
 
 			$("body").scrollTop(newObjWidth * yRatio)
 			$("body").scrollLeft(newObjWidth * xRatio)
