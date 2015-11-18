@@ -301,10 +301,16 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
         onLoad: function()
             {
             var svg = $("#svgload").svg('get');
-            svg.load('./img/Floors.svg', {addTo: true,  changeSize: false});        
+            svg.load('./img/Floors.svg', {addTo: true,  changeSize: false});      
             },
         settings: {}}
     );  
+
+    setTimeout(function(){
+		$("svg").attr("width","900px").attr("height","1400px")
+		$("body").scrollLeft(200)
+		$("body").scrollTop(5000)
+    },1000)
 
 }]);
 

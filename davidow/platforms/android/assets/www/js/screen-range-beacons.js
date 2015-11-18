@@ -43,6 +43,8 @@
 
 				if(new Date().getTime() - lastTimeWithBeacons > 15000 && activeBeacons.length > 0){
 					$(".tile-piece").addClass("faded");
+					clearInterval(aniLoop1);
+					clearInterval(aniLoop2);
 
 					//highlight a dot on the map
 					$.each(activeBeacons, function(i,v){
