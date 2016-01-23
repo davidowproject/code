@@ -6,8 +6,8 @@
 		transition: .5s;
 	}
 	.tile-piece, .tile-piece img{
-		height: 125px;
-		width:125px;
+		height: 100px;
+		width:100px;
 		display: inline-block;
 	}
 	#slider{
@@ -30,7 +30,7 @@
 	#zoom-in{
 	    position: fixed;
 	    right: 20px;
-	    bottom: 150px;
+	    bottom: 80px;
 	    font-size: 20px;
 	    background: #4FC5E7;
 	    height: 50px;
@@ -45,7 +45,7 @@
 	#zoom-out{
 		position: fixed;
 		right: 20px;
-		bottom: 80px;
+		bottom: 20px;
 		font-size: 20px;
 		background: #4FC5E7;
 		height: 50px;
@@ -114,7 +114,7 @@
 <!--Slider-->
 <div id="slider">
 	<div class="tile-piece" ng-repeat="piece in pieces | orderBy : floor">
-		<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url[0]}}" /></a>
+		<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
 	</div>
 </div>
 <div id="piece-title"></div>
@@ -127,10 +127,6 @@
 <div id="zoom-out">-</div>
 
 <!--map-->
-
-<!--
-<object data="img/Floors.svg" type="image/svg+xml"></object>
--->
 
 <object id="svgload"></object>
 

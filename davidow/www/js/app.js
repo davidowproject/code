@@ -215,7 +215,6 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		}
 	})
 
-
 	/*zoom*/
 	$("#zoom-in").on("mousedown",function(){
 		if($("svg").outerWidth() < 1000){

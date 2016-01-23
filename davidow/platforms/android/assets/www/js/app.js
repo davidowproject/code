@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'iso.directives', 'hljs', 'ngAnimate', 'ngSanitize']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 app.config(function($routeProvider){
 
@@ -10,21 +10,6 @@ app.config(function($routeProvider){
 		controller: 'tileView'
 
 	})
-
-	.when('/explore', {
-
-		templateUrl: './views/explore.html',
-		controller: 'mainController'
-
-	})
-
-	.when('/gallery', {
-
-		templateUrl: './views/gallery.html',
-		controller: 'gallery'
-
-	})
-
 
 	.when('/map', {
 
@@ -40,48 +25,12 @@ app.config(function($routeProvider){
 
 	})
 
-		.when('/piece/:id', {
+	.when('/piece/:id', {
 
 		templateUrl: './views/piece.html',
 		controller: 'piece'
 
 	})
-
-
-	.when('/tutorial',{
-
-		templateUrl: './views/tutorial.html',
-		controller: 'mainController'
-
-	})
-
-	.when('/about',{
-
-		templateUrl: './views/about.html',
-		controller: 'mainController'
-
-	})
-
-	.when('/settings',{
-
-		templateUrl: './views/settings.html',
-		controller: 'settings'
-
-	})
-
-	.when('/signin',{
-
-		templateUrl: './views/signin.html',
-		controller: 'mainController'
-
-	})
-
-	.when('/profile',{
-
-		templateUrl: './views/profile.html',
-		controller: 'mainController'
-	})
-
 });
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
@@ -228,8 +177,9 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 	window.scope = $scope;
 	$scope.url = [];
 	for(var i = 0; i < pieces.length; i++){
-		$scope.url.push(pieces[i].image_URL);
+		$scope.url.push(pieces[i].thumb_url);
 	}
+	$scope.pieces = pieces;
 
 	window.baseWidth = $("object").outerWidth()
 
@@ -264,7 +214,6 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 			}, 400);
 		}
 	})
-
 
 	/*zoom*/
 	$("#zoom-in").on("mousedown",function(){
@@ -328,6 +277,8 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
             },
         settings: {}}
     );  
+
+    initHammer();
 
     setTimeout(function(){
 		$("svg").attr("width","900px").attr("height","1400px")
