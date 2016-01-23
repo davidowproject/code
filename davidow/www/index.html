@@ -110,90 +110,59 @@
 			})
 
 		}
-		
-		//get data from server
-		var pieces = [];
-		var data = $.ajax({
-			dataType: "json",
-			url: "http://davidow.atec.io/api/getAllPieces.php",
-			success: function(){
-				$.each(data.responseJSON,function(){
-					pieces.push(this);
-				})
-			}
-		})
+	
 
-
-	/*
-		//Data setup
-		var pieces = [];
-		var data = $.ajax({
-		  dataType: "json",
-		  url: "js/data.json",
-		  success: function(){
-		  	$.each(data.responseJSON,function(){
-		  		if(this.piece_image != "" && this.piece_image != undefined){
-		  			this.image_url = /http:.+?(?=.jpg)(....)/.exec(this.piece_image)[0];
-		  			this.thumb_url = this.piece_image.match(/image\d{1,2}.\d{3,4}x\d{3,4}..../g);
-		  			var currentPiece = this;
-		  			if(this.thumb_url != null && this.floor != 0){
-			  			$.each(this.thumb_url, function(i, v){
-			  				currentPiece.thumb_url[i] =  /http:.+?(?=.image\d{1,2})/.exec(currentPiece.image_url)[0] + "/" + currentPiece.thumb_url[i];
-			  			})
-		  				pieces.push(this);
-		  			}
-		  		}
-		  	})
-			//sort a-z
-			function compare(a,b) {
-				if (a.piece_title < b.piece_title)
-					return -1;
-				if (a.piece_title > b.piece_title)
-					return 1;
-				return 0;
-			}
-			pieces = pieces.sort(compare);
-			pieces.pop();
-		  }
-		});
-	*/
 		//Click and swipe events
 		$(document).ready(function(){
-			var h = $("html")[0];
-			var close = Hammer(h,{threshold: 4, velocity:.1}).on("swipeleft", function() {
-	   			$("#dropdown-menu").show();
-			});
-			var open = Hammer(h,{threshold: 4, velocity:.1}).on("swiperight", function() {
-	   			$("#dropdown-menu").hide();
-			});
-			$("#dropdown-menu a").click(function(){$("#dropdown-menu").hide()});
-			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
-			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
+			$("#hamburger").click(function(){
+				$("#side-menu").toggle();
+			})
+			$("#side-menu a").click(function(){
+				$("#side-menu").hide();
+			})
+
 			$(".nav-icon").click(function(){
 				$(".active-nav").removeClass("active-nav");
 				$(this).addClass("active-nav");
 			})
 		});
 	</script>
+
 	<!--Style Sheets-->
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-    
     <link rel="stylesheet" href="css/masterLight.css">
     <link rel="stylesheet" href="css/stylesBlue.css">
-	
 </head>
+
+<!--top bar-->
+<nav>
+	<div id="brand" class="pull-left">Davidow</div>
+	<div class="pull-right">
+		<span id="filter-icon" class="glyphicon glyphicon-filter"></span>
+		<span id="search-icon" class="glyphicon glyphicon-search"></span>
+		<span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
+	</div>
+</nav>
+
+<!--side menu-->
+<div id="side-menu">
+    <a href="#/map">Map</a>
+    <a href="#/tileView">Gallery</a>
+</div>
+
 
 <!--screens injected here-->
 <body ng-app="app">
-	<div ng-view id="view-container" class="center"></div>
+	<div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
 </body>
 
-<!--nav-->
+<!--nav
 <div class="bottom-nav ng-scope">
     <a href="#/explore"><img class="nav-icon" src="img/explore.png"></a>
     <a href="#/map"><img class="nav-icon" src="img/map.png"></a>
     <a href="#tileView"><img class="nav-icon active-nav" src="img/gallery.png"></a>
 </div>
+-->
 
 <script src="js/polyfills.js"></script>
 

@@ -88,11 +88,6 @@ app.controller('mainController', ['$scope', '$location', '$log', function($scope
 
 }]);
 
-app.controller('gallery', ['$scope', '$location', '$log', function($scope, $location, $log){
-
-	$scope.pieces = pieces;
-	
-}]);
 
 app.controller('piece', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams){
 
@@ -110,13 +105,47 @@ app.controller('piece', ['$scope', '$location', '$routeParams', function($scope,
 }]);
 
 app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
+	//get data from server
+	var pieces = [];
+	var data = $.ajax({
+		dataType: "json",
+		url: "http://davidow.atec.io/api/getAllPieces.php",
+		success: function(){
+			$.each(data.responseJSON,function(){
+				pieces.push(this);
+			})
+			window.scope = $scope;
+			window.pieces= pieces;
+			$scope.pieces = pieces;
+			$scope.url = [];
+			for(var i = 0; i < pieces.length; i++){
+				$scope.url.push(pieces[i].image_URL);
+			}
+			$scope.$apply();
+		}
+	})
 
-	window.scope = $scope;
-	$scope.pieces = pieces;
-	$scope.url = [];
-	for(var i = 0; i < pieces.length; i++){
-		$scope.url.push(pieces[i].image_URL);
-	}
+	$("#search-icon").show()
+	$("#filter-icon").show()
+
+	$("#remove-icon").click(function(){
+		$(".searchbox").val('').change();
+	})
+		
+	$(".searchbox").focusin(function(){
+		$("#search-container").addClass('blue-border')
+  	})
+
+	$(".searchbox").focusout(function(){
+		$("#search-container").removeClass('blue-border')
+  	})
+
+
+	$("#search-icon").click(function(){
+		$("#search-container").toggle();
+  		$("#search-icon").toggleClass("rotate");
+	})
+
 
 	$("body").scrollLeft(0)
 	$("body").scrollTop(0)
@@ -192,26 +221,20 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   		$("*").css("overflow-y","hidden").css("overflow-x","hidden")
   	}
 
-  	/*animate*/
-  	$(".searchbox").focusin(function(){
-  		$("#search-icon span").addClass("rotate");
-  	})
-  	$(".searchbox").focusout(function(){
-  		$("#search-icon span").removeClass("rotate");
-  	})
-
 }]);
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
 
 	window.scope = $scope;
-	$scope.pieces = pieces;
 	$scope.url = [];
 	for(var i = 0; i < pieces.length; i++){
 		$scope.url.push(pieces[i].image_URL);
 	}
 
 	window.baseWidth = $("object").outerWidth()
+
+	$("#search-icon").hide()
+	$("#filter-icon").hide()
 
 	/*cycle through active pieces*/
 	$("#piece-next").click(function(){
@@ -311,16 +334,6 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$("body").scrollLeft(200)
 		$("body").scrollTop(5000)
     },1000)
-
-}]);
-
-app.controller('explore', ['$scope', '$location', '$log', function($scope, $location, $log){
-
-	window.scope = $scope;
-
-	$scope.pieces = pieces;
-
-	startRangingBeacons();
 
 }]);
 

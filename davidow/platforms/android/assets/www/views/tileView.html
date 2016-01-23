@@ -32,12 +32,29 @@
     background: linear-gradient(to right, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cf000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
   }
-  #search-icon span{
-    position: absolute;
-    font-size: 26px;
-    color: #AFAFAF;
-    top: 16px;
-    left: 14px;
+  #search-container{
+    width: 100%;
+    text-align:center;
+    padding:0 15px;
+    display: none;
+    background-color: white;
+    border-bottom: 2px solid #C9C9C9;
+  }
+.searchbox{
+    height: 60px;
+    padding: 10px;
+    font-size: 22px;
+    border: none;
+    padding-left: 50px;
+}
+.blue-border{
+  border-color: #4FC6E8 !important;
+}
+.searchbox:focus{
+  outline: none;
+  color: #3b3c3e;
+}
+  #search-icon{
     transition: .3s;
   }
   #filter-menu a{
@@ -57,7 +74,7 @@
     transition: .3s;
   }
   #menu-inner{
-    background: white;
+    background: white;`
     width: 80%;
     margin: auto;
     padding: 30px;
@@ -72,14 +89,6 @@
     padding: 10px;
     padding-left: 15px;
   }
-
-  #filter-icon{
-    color:#505050;
-    font-size: 16px;
-    margin-right: 12px;
-    border-right: 1px solid #C9C9C9;
-  }
-
   #active-filters{
     color: #CECECE;
   }
@@ -129,12 +138,15 @@
     padding-left:0;
   }
 
+
 </style>
 
+<div id="search-container">
+  <input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
+  <span id="remove-icon" class="glyphicon glyphicon-remove"></span>
+</div>
 
-<div id="search-icon"><span class="glyphicon glyphicon-search"></span></div>
-<input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
-
+<!--
 <div id="filter-toolbar" class="row" ng-click="showMenu()">
   <div class="col-xs-2" id="filter-icon">Filters</div>
   <div class="col-xs-9"id="active-filters">Showing all pieces</div>
@@ -144,52 +156,52 @@
 <div id="filter-menu">
 
   <div id="menu-inner">
+    <div id="menu-header">Filters</div>
+    <div id="menu-close" ng-click="hideMenu()">&times</div>
+    <br>
+    <hr>
+    <div>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('0')" />
+          Lithograph
+        </label>
+      </div>
 
-  <div id="menu-header">Filters</div>
-  <div id="menu-close" ng-click="hideMenu()">&times</div>
-  <br>
-  <hr>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox"  ng-click="filterBy('1')" />
+          Mixed Media
+        </label>
+      </div>
 
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox" ng-click="filterBy('0')" />
-        Lithograph
-      </label>
-    </div>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('2')" />
+          Painting
+        </label>
+      </div>
 
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox"  ng-click="filterBy('1')" />
-        Mixed Media
-      </label>
-    </div>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('3')" />
+          Photograph
+        </label>
+      </div>
 
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox" ng-click="filterBy('2')" />
-        Painting
-      </label>
-    </div>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('4')" />
+          Print
+        </label>
+      </div>
 
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox" ng-click="filterBy('3')" />
-        Photograph
-      </label>
-    </div>
-
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox" ng-click="filterBy('4')" />
-        Print
-      </label>
-    </div>
-
-    <div class="menu-checkbox">
-      <label>
-        <input type="checkbox" ng-click="filterBy('5')" />
-        Sculpture
-      </label>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('5')" />
+          Sculpture
+        </label>
+      </div>
     </div>
 
     <div class="menu-checkbox">
@@ -198,10 +210,9 @@
         Z-A
       </label>
     </div>
-
   </div>
-
 </div>
+-->
 
 <br>
 
@@ -212,7 +223,7 @@
     <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
     <div class="title" data-medium="{{piece.piece_category}}" style="padding:0;"></div>
     <a href="#/piece/{{piece.id}}">
-      <img class="tilePiece" src="{{piece.thumb_url[0]}}"/>
+      <img class="tilePiece" src="{{piece.thumb_url}}"/>
       <div class="tileTitle">{{piece.piece_title}}</div>
     </a>
   </div>
