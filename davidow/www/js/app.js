@@ -91,7 +91,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
 
 	$("#search-icon").click(function(){
-		$("#search-container").toggle();
+		$("#search-container").slideToggle(200);
   		$("#search-icon").toggleClass("rotate");
 	})
 
