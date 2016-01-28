@@ -282,7 +282,9 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
     	$("#tray").toggleClass("tray-open")
     	$("#arrow").toggleClass("rotate-arrow")
     	$("body").toggleClass("menu-padding")
-
+    	$("#zoom-in").toggleClass("in-pad")
+    	$("#zoom-out").toggleClass("out-pad")
+    	$("#tray-close-btn").toggleClass("tray-btn-open")
     })
 
     setTimeout(function(){
