@@ -278,6 +278,13 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
         settings: {}}
     );  
 
+    $("#tray-close-btn").click(function(){
+    	$("#tray").toggleClass("tray-open")
+    	$("#arrow").toggleClass("rotate-arrow")
+    	$("body").toggleClass("menu-padding")
+
+    })
+
     setTimeout(function(){
 		$("svg").attr("width","900px").attr("height","1400px")
 		$("body").scrollLeft(200)
