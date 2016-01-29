@@ -218,7 +218,7 @@ object{
 #zoom-in{
     position: fixed;
     right: 20px;
-    bottom: 90px;
+    bottom: 110px;
     font-size: 20px;
     background: #4FC5E7;
     height: 50px;
@@ -234,7 +234,7 @@ object{
 #zoom-out{
   position: fixed;
   right: 20px;
-  bottom: 30px;
+  bottom: 50px;
   font-size: 20px;
   background: #4FC5E7;
   height: 50px;
@@ -303,9 +303,9 @@ border-right:20px solid white;
 #tray{
   width: 100%;
   position: fixed;
-  bottom: -180px;
+  bottom: -42%;
   left: 0;
-  height: 200px;
+  height: 40%;
   background: #f7f7f7;
   text-align: center;
   overflow: hidden;  
@@ -313,6 +313,17 @@ border-right:20px solid white;
   padding-top: 20px;
 }
 
+#tray-close-btn{
+  box-shadow: 0 0 2px #676767;
+  padding: 5px 0;
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index: 10;
+  bottom: 0;
+  text-align: center;
+  transition: .3s;
+}
 
 .tray-item{
  width: 100%;
@@ -341,41 +352,37 @@ border-right:20px solid white;
   color: #9E9E9E;
 }
 
-#tray-close-btn{
-  box-shadow: 0 0 2px #676767;
-  padding: 2px 0;
-  position: fixed;
-  width: 100%;
-  background: white;
-  z-index: 10;
-  bottom: 0;
-}
 
 #arrow{
   transition: .3s;
 }
 
+/*
+for animations
+!important to override 
+the previous rules
+*/
 .tray-open{
-  bottom:0px !important;
+  bottom: 0 !important;
   overflow-y:scroll !important;
 }
 
 .tray-btn-open{
-  bottom: 176px !important;
+  bottom: 37% !important;
 }
 
 .rotate-arrow{
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
 }
 
 .menu-padding{
-  padding-bottom: 200px !important;
+  padding-bottom: 40% !important;
 }
 
 .in-pad{
-  bottom: 290px !important;
+  bottom: 54% !important;
 }
 
 .out-pad{
-  bottom: 230px !important;
+  bottom: 44% !important;
 }
