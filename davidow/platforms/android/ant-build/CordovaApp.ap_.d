@@ -63,7 +63,6 @@ C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\index.js \
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\jquery-2.1.3.js \
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\jquery.svg.min.js \
-C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\pinch.js \
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\polyfills.js \
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\js\screen-range-beacons.js \
 C:\Users\Dylan-PC\Documents\GitHub\code\davidow\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen \

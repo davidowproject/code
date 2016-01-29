@@ -1,117 +1,10 @@
 <style>
-	::-webkit-scrollbar { 
-	    display: none; 
+	body{
+		padding-bottom: 40px;
 	}
-	.tile-piece{
-		transition: .5s;
-	}
-	.tile-piece, .tile-piece img{
-		height: 100px;
-		width:100px;
-		display: inline-block;
-	}
-	#slider{
-		overflow-x:scroll;
-		overflow-y:hidden;
-		white-space: nowrap;
-		position: fixed;
-		width:100%;
-		background: white;
-	    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.43);	
-	}
-	#map-container{
-		padding-top: 125px;
-	}
-	object{
-		padding: 0 10px;
-		margin-bottom: 100px;
-	}
-
-	#zoom-in{
-	    position: fixed;
-	    right: 20px;
-	    bottom: 80px;
-	    font-size: 20px;
-	    background: #4FC5E7;
-	    height: 50px;
-	    width: 50px;
-	    margin: auto;
-	    text-align: center;
-	    border-radius: 50%;
-	    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
-	    color: white;
-	    padding-top: 11px;
-	}
-	#zoom-out{
-		position: fixed;
-		right: 20px;
-		bottom: 20px;
-		font-size: 20px;
-		background: #4FC5E7;
-		height: 50px;
-		width: 50px;
-		margin: auto;
-		text-align: center;
-		border-radius: 50%;
-		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
-		color: white;
-		padding-top: 11px;
-	}
-
-  	.faded{
-    	-webkit-opacity: .2;
-  	}
-  	#piece-title{
-  		-webkit-opacity: 0;
-  		transition: .5s;
-	    position: fixed;
-	    top: 125px;
-	    padding: 5px 20px;
-	    width: 100%;
-	    background: rgba(0, 0, 0, 0.58);
-	    color: white;
-	    letter-spacing: 1px;
-	    text-align: center;
-  	}
-  	#piece-next,#piece-prev{
-	    position: fixed;
-    	top: 130px;
-    	font-size: 40px;
-    	z-index: 9999;
-    	color: white;
-    	-webkit-opacity:0;
-    	transition: .5s;
-  	}
-  	#piece-next{
-  		right:15px;
-		width: 0; 
-		height: 0; 
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-left: 20px solid white;
-  	}
-  	#piece-prev{
-  		left: 15px;
-		width: 0; 
-		height: 0; 
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent; 
-		border-right:20px solid white; 
-  	}
-
-
-  	.found{
-  		fill: red;
-  		transition: 1s;
-  	}
-  	.normal{
-  		fill: #4FC5E7;
-  		transition: 1s;
-  	}
-
 </style>
 
-<!--Slider-->
+<!--Slider
 <div id="slider">
 	<div class="tile-piece" ng-repeat="piece in pieces | orderBy : floor">
 		<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
@@ -120,7 +13,7 @@
 <div id="piece-title"></div>
 <div id="piece-next"></div>
 <div id="piece-prev"></div>
-
+-->
 
 <!--zoom-->
 <div id="zoom-in">+</div>
@@ -130,4 +23,20 @@
 
 <object id="svgload"></object>
 
-<br><br><br><br><br>
+<!--tray-->
+<div id="tray">
+	<div id="tray-close-btn">
+		<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
+	</div>
+	<div class="tray-item" ng-repeat="piece in pieces | orderBy : floor">
+		<div class="row">
+			<div class="col-xs-4">
+				<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
+			</div>
+			<div class="col-xs-8 left-align">
+				<div class="tray-title">{{piece.piece_title}}</div>
+				<div class="tray-artist">{{piece.artist}}</div>
+			</div>
+		</div>
+	</div>
+</div>
