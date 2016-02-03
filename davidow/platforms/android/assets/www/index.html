@@ -1,152 +1,232 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>Eddystone Demo</title>
 
-	<meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-
-	<!--First we load the cordova script, then we load index to take care of initializing the estimotes-->
-	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-
-	<!--jquery & angular scripts are loaded before any other scripts that depend on them-->
-	<script src="js/jquery-2.1.3.js"></script>
-	<script src="js/jquery.svg.min.js"></script>
-	<script src="js/angular.min.js"></script>
-
-	<!--Routing and animations-->
-	<script src="js/angular-route.min.js"></script>
-	<script src="js/angular-animate.min.js"></script>
-    <script src="js/angular-sanitize.min.js"></script>
-
-	<!--Our app controllers-->
-	<script src="js/app.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
-	<!--Estimotes and touch events-->
-	<script src= "js/screen-range-beacons.js"></script>
-	<script src= "js/hammer.min.js"></script>
-
-	<!--twitter-->
-	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-	<script src="js/polyfills.js"></script>	
-
-	<!--desktop testing-->
 	<script>
-		//Desktop testing for beacons
-        
-		var activeBeacons = [];
-		var activePosition = 0;
-		var aniLoop1 = 0;
-		var aniLoop2 = 0;
-        
-        function onRange(beacons)
-		{
-			//set stuff up
-			activeBeacons = [];
-			activePosition = 0;
-			if(beacons.length != 0){
-				$("#slider").css("overflow-x","hidden");
-			}else{
-				$(".tile-piece").removeClass("faded");
-				$("#slider").css("overflow-x","scroll");
-				$("#piece-title").css('-webkit-opacity', '0').html("");
-				$("#piece-prev").css('-webkit-opacity', '0');
-				$("#piece-next").css('-webkit-opacity', '0');
-			}
-
-			//compose list of active beacons for cycling
-			$.each(beacons, function(beaconNumber,beaconID){
-				$(".beacon").hide();
-				var c;
-				var pos;
-				$.each(pieces, function(i, v){
-					if(beaconID == v.beaconID){
-						activeBeacons.push({piece: v, position: i})
-					} 
-				})
-			})
-
-			//set slider to first beacon
-			activePosition = 0;
-			$("#slider").animate({scrollLeft: 125 * activeBeacons[0].position - 125}, 400);
-			setTimeout(function(){
-				$(".tile-piece").addClass("faded");
-				$($(".tile-piece")[activeBeacons[0].position]).removeClass("faded");
-				$("#piece-title").css('-webkit-opacity', '1').html(activeBeacons[0].piece.piece_title);
-				$("#piece-prev").css('-webkit-opacity', '1');
-				$("#piece-next").css('-webkit-opacity', '1');
-			}, 400);
-
-			//highlight a dot on the map
-			$.each(activeBeacons, function(i,v){
-				if(v.piece.beaconID == "1002" && aniLoop1 == 0){
-					aniLoop1 = setInterval(function(){
-						if($($("#Artworks circle")[0]).attr("class").indexOf("found") == 0){
-							$($("#Artworks circle")[0]).attr("class","normal")
-						}else{
-							$($("#Artworks circle")[0]).attr("class","found")
-						}
-						
-					},1000)
-				}
-				if(v.piece.beaconID == "1003" && aniLoop2 == 0){
-					aniLoop2 = setInterval(function(){
-						if($($("#Artworks circle")[1]).attr("class").indexOf("found") == 0){
-							$($("#Artworks circle")[1]).attr("class","normal")
-						}else{
-							$($("#Artworks circle")[1]).attr("class","found")
-						}
-						
-					},1000)
-				}
-			})
-
-		}
-	
-
-		//Click and swipe events
-		$(document).ready(function(){
-			$("#hamburger").click(function(){
-				$("#side-menu").toggle();
-			})
-			$("#side-menu a").click(function(){
-				$("#side-menu").hide();
-			})
-			$(".nav-icon").click(function(){
-				$(".active-nav").removeClass("active-nav");
-				$(this).addClass("active-nav");
-			})
-		});	
+	// Redirect console.log when running from Evothings Workbench.
+	if (window.hyper && window.hyper.log) { console.log = hyper.log }
 	</script>
 
-	<!--Style Sheets-->
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/masterLight.css">
-    <link rel="stylesheet" href="css/stylesBlue.css">
+	<style>
+	body
+	{
+		font-family: sans-serif;
+	}
+
+	h1
+	{
+		margin-right:110px;
+	}
+
+	.evo-image
+	{
+		position:fixed;
+		right:5px;
+		top:5px;
+		width:100px;
+		height:auto;
+		background:white;
+	}
+	</style>
 </head>
 
-<!--top bar-->
-<nav>
-	<div id="brand" class="pull-left">Davidow</div>
-	<div class="pull-right">
-		<span id="filter-icon" class="glyphicon glyphicon-filter"></span>
-		<span id="search-icon" class="glyphicon glyphicon-search"></span>
-		<span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
-	</div>
-</nav>
+<body>
 
-<!--side menu-->
-<div id="side-menu">
-    <a href="#/tileView">Gallery</a>
-    <a href="#/map">Map</a>
-</div>
+	<img class="evo-image" src="https://evomedia.evothings.com/2013/11/evothings_logo_large_white1.png" />
 
-<!--screens injected here-->
-<body ng-app="app">
-	<div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
+	<h1>Eddystone Demo</h1>
+
+
+	<p id="message">Preparing...</p>
+
+	<div id="found-beacons"></div>
+
+	<!--
+	Including cordova.js will automatically include the JavaScript library
+	for Eddystone.
+	-->
+	<script src="cordova.js"></script>
+
+	<script>
+	// Application code starts here. The code is wrapped in a
+	// function closure to prevent overwriting global objects.
+	(function()
+	{
+		// Dictionary of beacons.
+		var beacons = {};
+
+		// Timer that displays list of beacons.
+		var timer = null;
+
+		function onDeviceReady()
+		{
+			// Start tracking beacons!
+			setTimeout(startScan, 500);
+
+			// Timer that refreshes the display.
+			timer = setInterval(updateBeaconList, 500);
+		}
+
+		function startScan()
+		{
+			showMessage('Scan in progress.');
+			evothings.eddystone.startScan(
+				function(beacon)
+				{
+					// Update beacon data.
+					beacon.timeStamp = Date.now();
+					beacons[beacon.address] = beacon;
+				},
+				function(error)
+				{
+					showMessage('Eddystone scan error: ' + error);
+				});
+		}
+
+		// Map the RSSI value to a value between 1 and 100.
+		function mapBeaconRSSI(rssi)
+		{
+			if (rssi >= 0) return 1; // Unknown RSSI maps to 1.
+			if (rssi < -100) return 100; // Max RSSI
+			return 100 + rssi;
+		}
+
+		function getSortedBeaconList(beacons)
+		{
+			var beaconList = [];
+			for (var key in beacons)
+			{
+				beaconList.push(beacons[key]);
+			}
+			beaconList.sort(function(beacon1, beacon2)
+			{
+				return mapBeaconRSSI(beacon1.rssi) < mapBeaconRSSI(beacon2.rssi);
+			});
+			return beaconList;
+		}
+
+		function updateBeaconList()
+		{
+			removeOldBeacons();
+			displayBeacons();
+		}
+
+		function removeOldBeacons()
+		{
+			var timeNow = Date.now();
+			for (var key in beacons)
+			{
+				// Only show beacons updated during the last 60 seconds.
+				var beacon = beacons[key];
+				if (beacon.timeStamp - 60000 > timeNow)
+				{
+					delete beacons[key];
+				}
+			}
+		}
+
+		function displayBeacons()
+		{
+			var html = '';
+			var sortedList = getSortedBeaconList(beacons);
+			for (var i = 0; i < sortedList.length; ++i)
+			{
+				var beacon = sortedList[i];
+				var htmlBeacon =
+					'<p>'
+					+	htmlBeaconName(beacon)
+					+	htmlBeaconURL(beacon)
+					+	htmlBeaconNID(beacon)
+					+	htmlBeaconBID(beacon)
+					+	htmlBeaconVoltage(beacon)
+					+	htmlBeaconTemperature(beacon)
+					+	htmlBeaconRSSI(beacon)
+					+ '</p>';
+				html += htmlBeacon
+			}
+			document.querySelector('#found-beacons').innerHTML = html;
+		}
+
+		function htmlBeaconName(beacon)
+		{
+			var name = beacon.name || 'no name';
+			return '<strong>' + name + '</strong><br/>';
+		}
+
+		function htmlBeaconURL(beacon)
+		{
+			return beacon.url ?
+				'URL: ' + beacon.url + '<br/>' :  '';
+		}
+
+		function htmlBeaconURL(beacon)
+		{
+			return beacon.url ?
+				'URL: ' + beacon.url + '<br/>' :  '';
+		}
+
+		function htmlBeaconNID(beacon)
+		{
+			return beacon.nid ?
+				'NID: ' + uint8ArrayToString(beacon.nid) + '<br/>' :  '';
+		}
+
+		function htmlBeaconBID(beacon)
+		{
+			return beacon.bid ?
+				'BID: ' + uint8ArrayToString(beacon.bid) + '<br/>' :  '';
+		}
+
+		function htmlBeaconVoltage(beacon)
+		{
+			return beacon.voltage ?
+				'Voltage: ' + beacon.voltage + '<br/>' :  '';
+		}
+
+		function htmlBeaconTemperature(beacon)
+		{
+			return beacon.temperature && beacon.temperature != 0x8000 ?
+				'Temperature: ' + beacon.temperature + '<br/>' :  '';
+		}
+
+		function htmlBeaconRSSI(beacon)
+		{
+			return beacon.rssi ?
+				'RSSI: ' + beacon.rssi + '<br/>' :  '';
+		}
+
+		function uint8ArrayToString(uint8Array)
+		{
+			function format(x)
+			{
+				var hex = x.toString(16);
+				return hex.length < 2 ? '0' + hex : hex;
+			}
+
+			var result = '';
+			for (var i = 0; i < uint8Array.length; ++i)
+			{
+				result += format(uint8Array[i]) + ' ';
+			}
+			return result;
+		}
+
+		function showMessage(text)
+		{
+			document.querySelector('#message').innerHTML = text;
+		}
+
+		// This calls onDeviceReady when Cordova has loaded everything.
+		document.addEventListener('deviceready', onDeviceReady, false);
+
+	})(); // End of closure.
+	</script>
+
 </body>
 
 </html>
