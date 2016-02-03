@@ -29,7 +29,7 @@
 </div>
 <div id="tray">
 	<div class="tray-item" ng-repeat="piece in pieces | orderBy : floor">
-		<div class="row">
+		<div class="row" id="{{piece.id}}">
 			<div class="col-xs-4">
 				<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
 			</div>

@@ -326,9 +326,10 @@ border-right:20px solid white;
 }
 
 .tray-item{
- width: 100%;
- border-bottom: 1px solid #b5b5b5;
- padding:10px;
+  display: none;
+  width: 100%;
+  border-bottom: 1px solid #b5b5b5;
+  padding:10px;
 }
 
 .tray-item a img{
@@ -380,7 +381,7 @@ the previous rules
 }
 
 .in-pad{
-  bottom: 54% !important;
+  bottom: 56% !important;
 }
 
 .out-pad{

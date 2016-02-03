@@ -173,7 +173,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 }]);
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
-
 	window.scope = $scope;
 	$scope.url = [];
 	for(var i = 0; i < pieces.length; i++){
