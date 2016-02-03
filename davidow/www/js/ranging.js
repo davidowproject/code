@@ -7,7 +7,9 @@ var shownBeacons = []
 */
 
 var onRange = function(beacons){
-	//beacons come in as array
+	//reset dom
+	$(".tray-item").hide()
+	//beacons come in as array so we sort through them
 	$.each(beacons, function(i,beacon){
 		//store id for ease of access
 		var id = beacon.id
@@ -33,15 +35,17 @@ var onRange = function(beacons){
 				timer: Date.now()
 			})
 		}
-	})
-	//end beacon loop
+	})//end beacon loop
 }
 
 var showBeacon = function(id){
 	//logic for showing beacon in dom
 	$.each(pieces, function(i,v){
 		if(v.beacon_id == id){
+			//show the piece's bar in the list
 			$("#"+v.id).parent().show()
+			//show the piece on the map
+			
 		}
 	})
 }
