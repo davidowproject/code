@@ -1,0 +1,230 @@
+<style>
+ 
+  html,body{
+    overflow-x:hidden !important;
+    width:100% !important;
+  }
+  .tilePiece{
+    height:150px;
+    width: 150px;
+    box-shadow: 0 0 5px black;
+  }
+  .tileTitle{
+    text-align: left;
+    position: relative; 
+    /* bottom: 0px; */
+    /* left: 19px; */
+    color: white;
+    width: 150px;
+    margin: auto;
+    margin-top: -20px;
+    padding-left: 4px;
+    height:20px;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.81+68,0+100 */
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.81) 0%, rgba(0,0,0,0.81) 68%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.81)), color-stop(68%,rgba(0,0,0,0.81)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to right, rgba(0,0,0,0.81) 0%,rgba(0,0,0,0.81) 68%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cf000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+  }
+  #search-container{
+    width: 100%;
+    text-align:center;
+    padding:0 15px;
+    display: none;
+    background-color: white;
+    border-bottom: 2px solid #C9C9C9;
+  }
+  .searchbox{
+    height: 60px;
+    padding: 10px;
+    font-size: 22px;
+    border: none;
+  }
+  .blue-border{
+    border-color: #4FC6E8 !important;
+  }
+  .searchbox:focus{
+    outline: none;
+    color: #3b3c3e;
+  }
+  #search-icon{
+    transition: .3s;
+  }
+  #filter-menu a{
+    color: #333;
+  }
+  #filter-menu{
+    display: none;
+    -webkit-opacity: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background: rgba(0, 0, 0, 0.76);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding-top: 20%;
+    transition: .3s;
+  }
+  #menu-inner{
+    background: white;`
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 4px;
+  }
+  #filter-toolbar{
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 4px black;
+    background: #FAFAFA;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 15px;
+  }
+  #active-filters{
+    color: #CECECE;
+  }
+
+  hr{opacity: .2}
+
+  #menu-header{
+    float:left;
+    font-size: 20px;
+  }
+  #menu-close{
+    float:right;
+    font-size: 20px;
+  }
+  .menu-checkbox{
+    margin-bottom: 15px;
+  }
+
+  .row.ng-scope{
+    margin: 0 !important;
+  }
+
+  .rotate{
+    -webkit-transform: rotate(45deg)
+  }
+
+  .webkit-fade{
+    -webkit-opacity: 1 !important;
+  }
+
+  .filter{
+    color: #333;
+    padding: 4px 10px;
+    background: #E1DFDF;
+    border-radius: 6px;
+    margin-right: 12px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  input[type="checkbox"]{
+    margin-right: 10px;
+  }
+
+  #filter-icon.col-xs-2,
+  #active-filters.col-xs-9{
+    padding-left:0;
+  }
+</style>
+
+<div id="search-container">
+  <input class="searchbox" placeholder="Search" type="text" ng-model="searchText"> 
+  <span id="remove-icon" class="glyphicon glyphicon-remove"></span>
+</div>
+
+<!--
+<div id="filter-toolbar" class="row" ng-click="showMenu()">
+  <div class="col-xs-2" id="filter-icon">Filters</div>
+  <div class="col-xs-9"id="active-filters">Showing all pieces</div>
+</div>
+
+<div id="filter-menu">
+
+  <div id="menu-inner">
+    <div id="menu-header">Filters</div>
+    <div id="menu-close" ng-click="hideMenu()">&times</div>
+    <br>
+    <hr>
+    <div>
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('0')" />
+          Lithograph
+        </label>
+      </div>
+
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox"  ng-click="filterBy('1')" />
+          Mixed Media
+        </label>
+      </div>
+
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('2')" />
+          Painting
+        </label>
+      </div>
+
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('3')" />
+          Photograph
+        </label>
+      </div>
+
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('4')" />
+          Print
+        </label>
+      </div>
+
+      <div class="menu-checkbox">
+        <label>
+          <input type="checkbox" ng-click="filterBy('5')" />
+          Sculpture
+        </label>
+      </div>
+    </div>
+
+    <div class="menu-checkbox">
+      <label>
+        <input type="checkbox" ng-click="filterBy('6');reverse=!reverse;order('piece_title', reverse)" />
+        Z-A
+      </label>
+    </div>
+  </div>
+</div>
+-->
+
+<br>
+
+<div class="row">
+
+  <div class="col-xs-6 piece-item" style="margin-bottom:20px;text-align:center" ng-repeat="piece in pieces | filter:searchText">
+    
+    <div class="title" title="{{piece.piece_title}}" style="padding:0;"></div>
+    <div class="title" data-medium="{{piece.piece_category}}" style="padding:0;"></div>
+    <a href="#/piece/{{piece.id}}">
+      <img class="tilePiece" src="{{piece.thumb_url}}"/>
+      <div class="tileTitle">{{piece.piece_title}}</div>
+    </a>
+  </div>
+
+</div>
+
+<br><br><br><br>
+
