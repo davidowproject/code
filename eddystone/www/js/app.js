@@ -292,6 +292,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		$("body").scrollTop(5000)
     },1000)
 
+
 }]);
 
 

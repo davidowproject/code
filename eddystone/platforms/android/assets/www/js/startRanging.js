@@ -1,5 +1,5 @@
 // Dictionary of beacons.
-var beacons = {};
+var beacons = [];
 
 // Timer that displays list of beacons.
 var timer = null;
@@ -7,28 +7,29 @@ var timer = null;
 function onDeviceReady()
 {
     // Start tracking beacons!
+    //uncomment to run at startup
     setTimeout(startScan, 500);
 
     // Timer that refreshes the display.
-    timer = setInterval(updateBeaconList, 500);
+    timer = setInterval(onRange(beacons), 500);
 }
 
 function startScan()
 {
-    showMessage('Scan in progress.');
     evothings.eddystone.startScan(
         function(beacon)
         {
-            // Update beacon data.
-            beacon.timeStamp = Date.now();
-            beacons[beacon.address] = beacon;
+            //todo error handling if no bid
+            bid = uint8ArrayToString(beacon.bid);
+            bid = bid.replace(/\s+/g, '');
+            bid = parseInt(bid, 16)
+            beacons.push({id: bid});
         },
         function(error)
         {
-            showMessage('Eddystone scan error: ' + error);
         });
 }
-
+/*
 // Map the RSSI value to a value between 1 and 100.
 function mapBeaconRSSI(rssi)
 {
@@ -165,7 +166,7 @@ function showMessage(text)
 {
     document.querySelector('#message').innerHTML = text;
 }
-
+*/
 // This calls onDeviceReady when Cordova has loaded everything.
 document.addEventListener('deviceready', onDeviceReady, false);
 

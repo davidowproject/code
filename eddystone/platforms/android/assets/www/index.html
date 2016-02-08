@@ -33,7 +33,6 @@
 
     <!--look for beacons-->
     <script src="js/ranging.js"></script>   
-    <script src="js/startRanging.js"></script>   
     <script>
         //Click events
         $(document).ready(function(){
@@ -58,14 +57,26 @@
 
 </head>
 
-<body>
+<!--top bar-->
+<nav>
+    <div id="brand" class="pull-left">Davidow</div>
+    <div class="pull-right">
+        <span id="filter-icon" class="glyphicon glyphicon-filter"></span>
+        <span id="search-icon" class="glyphicon glyphicon-search"></span>
+        <span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
+    </div>
+</nav>
 
-    <h1>Eddystone Demo</h1>
 
-    <p id="message">Preparing...</p>
+<!--side menu-->
+<div id="side-menu">
+    <a href="#/tileView">Gallery</a>
+    <a href="#/map">Map</a>
+</div>
 
-    <div id="found-beacons"></div>
-
+<!--screens injected here-->
+<body ng-app="app">
+    <div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
 </body>
 
 </html>
