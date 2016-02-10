@@ -47,7 +47,7 @@ var onRange = function(foundBeacons){
 				$.each(foundBeacons, function(j, foundBeacon){
 					if(shownBeacon.id == foundBeacon.id){
 						shownBeacon.lastFound = Date.now()
-					}else if(Date.now() - shownBeacon.lastFound > 4000){
+					}else if(Date.now() - shownBeacon.lastFound > 10000){
 						hideBeacon(shownBeacon.id)
 						shownBeacons.splice(i,1)
 					}
@@ -76,6 +76,7 @@ var hideBeacon = function(id){
 	$.each(pieces, function(i,v){
 		if(v.beacon_id == id){
 			$("#"+v.id).parent().fadeOut()
+			$($("#Artworks circle")[1]).css({"fill":"#4FC5E7"})
 		}
 	})
 }
@@ -83,6 +84,7 @@ var showBeacon = function(id){
 	$.each(pieces, function(i,v){
 		if(v.beacon_id == id && id != 0){
 			$("#"+v.id).parent().fadeIn()
+			$($("#Artworks circle")[1]).css({"fill":"red"})
 		}
 	})
 }
