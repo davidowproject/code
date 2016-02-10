@@ -10,12 +10,11 @@ function onDeviceReady()
     setTimeout(startScan, 500);
 
     // Timer that refreshes the display.
-    timer = setInterval(onRange(beacons), 1000);
+    timer = setInterval(function(){onRange(beacons)}, 1000);
 }
 
 function startScan()
 {
-	alert("hit")
     evothings.eddystone.startScan(
         function(beacon)
         {
@@ -26,7 +25,6 @@ function startScan()
 	            bid = bid.replace(/\s+/g, '')
 	            bid = parseInt(bid, 16)
 	            beacons.push({id: bid})
-	            alert(bid)
         	}
         },
         function(error)
@@ -44,13 +42,12 @@ var shownBeacons = []
 */
 var onRange = function(foundBeacons){
 	if(foundBeacons.length && window.location.hash.indexOf("map")>0){
-		$.each(foundBeacons, function(i,v){alert(v.id)})
 		if(shownBeacons.length){
 			$.each(shownBeacons, function(i, shownBeacon){
 				$.each(foundBeacons, function(j, foundBeacon){
 					if(shownBeacon.id == foundBeacon.id){
 						shownBeacon.lastFound = Date.now()
-					}else if(Date.now() - shownBeacon.lastFound > 10000){
+					}else if(Date.now() - shownBeacon.lastFound > 4000){
 						hideBeacon(shownBeacon.id)
 						shownBeacons.splice(i,1)
 					}
@@ -84,7 +81,7 @@ var hideBeacon = function(id){
 }
 var showBeacon = function(id){
 	$.each(pieces, function(i,v){
-		if(v.beacon_id == id){
+		if(v.beacon_id == id && id != 0){
 			$("#"+v.id).parent().fadeIn()
 		}
 	})
@@ -104,3 +101,5 @@ function uint8ArrayToString(uint8Array)
 	}
 	return result;
 }
+
+document.addEventListener('deviceready', onDeviceReady, false);
