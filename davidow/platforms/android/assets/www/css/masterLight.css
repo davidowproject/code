@@ -1,24 +1,23 @@
 /*HTML*/
 body {
-	background-color: #3b3c3e;
 	color: #ebebeb;
 }
 a:link{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ebebeb;
   text-decoration: none;
 }
 a:visited{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ebebeb;
 }
 a:hover{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ebebeb;
   text-decoration: none;
 }
 a:active{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ebebeb;
 }
 .header{
@@ -32,80 +31,85 @@ a,a:hover{
   text-decoration: none;
 }
 p{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #3b3c3e;
 }
 
-/**********beacon styles & transitions**********/
-.beacon {
-  position: relative;
-}
-.beacon .marker {
-  border: 5px solid #4fc5e7;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  left: -10px;
-  top:56px;
-  /*keep at 30 so circle stays in place*/
-  position: absolute;
-  -webkit-animation: pulsate 3s ease-out;
-  -webkit-animation-iteration-count: infinite;
-  opacity: 0;
-}
-#beacon2 {
-  -webkit-animation-delay: 0.6s;
-}
-#beacon3 {
-  -webkit-animation-delay: 1.2s;
-}
-#beacon4 {
-  -webkit-animation-delay: 1.8s;
-}
-#beacon5 {
-  -webkit-animation-delay: 2.4s;
-}
-@-webkit-keyframes pulsate {
-  0 {
-    -webkit-transform: scale(0.1, 0.1);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    -webkit-transform: scale(4, 4);
-    opacity: 0;
-  }
-}
-.disable-scroll{
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-.isotope-item{
-  height:120px !important; 
-  width:120px !important; 
-  border:1px solid black;
-}
-#view-container{
-  position: absolute;
-  width:100%;
-}
-#menu-btn, #close-btn{
-  padding: 5px 7px;
+/*top bar*/
+nav{
   position: fixed;
-  font-size: 22px;
-  bottom: 20px;
-  right: 20px;
-  height: 40px;
-  width: 40px;
-  background-color: #F5F5F5;
-  border-radius: 2px;
-  border: 2px solid #A7A7A7;
-  box-shadow: 2px 2px 0px 0px rgba(48, 48, 48, 0.1);
+  font-size: 1.5em;
+  color: #DDDDDD;
+  background-color: #212121;
+  height: 48px;
+  padding: 8px 15px;
+  z-index: 100;
+  width: 100%;
 }
-#menu-btn span, #close-btn span{
-  color: #4FC5E7;
+nav .glyphicon{
+  margin-left: 20px;
 }
+
+/*side menu*/
+#side-menu{
+  position: fixed;
+  right: 0;
+  top: 48px;
+  height: 100%;
+  width: 60%;
+  background-color: #363636;
+  display: none;
+  z-index: 99;
+}
+
+#side-menu a{
+  padding: 20px;
+  display: block;
+  color: white;
+  font-size: 1.7em;
+}
+
+
+
+
+
+
+
+
+
+/* Bottom Nav */
+.bottom-nav{
+  position: fixed;
+  background-color: #151515;
+  height: 65px;
+  bottom: 0;
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#212121+0,141414+100 */
+  background: rgb(33,33,33); /* Old browsers */
+}
+
+.bottom-nav a{
+  display: inline-block;
+  height: 45px;
+  width: 30%;
+}
+
+.bottom-nav a:nth-child(2) {
+  border-left: 1px solid #101010;
+  border-right: 1px solid #101010;
+}
+
+.bottom-nav img{
+ padding-left: 6%;
+  padding-right: 6%;
+  height: 70%;
+  margin-top:4px;
+  max-width: 100%;
+  display:inline-block;
+}
+
 
 .img-header{
     padding: 20px;
@@ -122,115 +126,41 @@ p{
   z-index: -2;
 }
 #piece{
-  width: 90%;
-  margin: 10px 15px 15px 15px;
+  width: 100%;
 }
 #galleryThumb{
   height:100px;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: -1px 3px 4px -1px #333;
   margin-top:10px;
 }
 #exploreThumb{
   height:100px;
 }
 
-.searchbox{
-  margin-top: 2px;
-	margin-bottom: 10px;
-  	font-size: 20px;
-  	width: 100%;
-  	background: #333;
-  	border: 2px solid #ebebeb;
-  	color: white;
-  	padding: 10px;
-}
-.searchbox:focus{
-	outline: none;
+
+.art-info{
+    background-color:#fff;
+    padding: 3em 2em 2em 2em;
+    box-shadow: 0 2px 5px 0px rgba(3,3,3,0.2);
 }
 
-/*Isotope Stuff*/
-/**** Isotope CSS3 transitions ****/
-
-.isotope,
-.isotope .isotope-item {
-  -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-      -ms-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+.art-info span{
+    float:right;
+    font-size: 14px;
+    font-weight: 400;
 }
 
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
+.artinfo-divider{
+    width: 100%;
+    float: left;
+    border-top: 1px solid rgba(90, 76, 76, 0.27);
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
-}
-
-/**** disabling Isotope CSS3 transitions ****/
-
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
-}
-
-.isotope-item {
-  z-index: -1;
-}
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-}
-
-
-/*Nav*/
-#dropdown-menu{
-  display: none;
-  position: fixed;
-  top: 0;
-  height: 100%;
-  padding: 15px;
-  background-color: #EBEBEB;
-  width: 80%;
-  z-index: 1;
-  box-shadow: -2px 1px 11px rgb(183,183,183);
-  color: rgb(255, 255, 255);
-  text-align: center;
-  right: 0;
-  transition: .8s;
-}
-#dropdown-menu h2 a{
-  font-size: 25px;
-  color: #3b3c3e;
-  border-bottom: 1px solid rgb(183, 183, 183);
-  width: 100%;
-  padding-bottom: 20px;
-  display: inline-block;
-}
-#menu-close-sheild{
-  position: absolute;   
-  width: 70px;
-  right:0px;
-  height: 100%;
-  top:0;
-}
-.artInfo{
-  margin-left: 15px;
-  margin-right: 2px;
+.artist-info{
+    padding:2em;
+    margin-bottom:7em;
 }
 
 .twitter{
@@ -241,15 +171,218 @@ p{
 }
 .header{
   background:#DADADA;
-  padding:10px;
+  padding:6px;
   border-bottom:1px solid #A7A7A7;
   box-shadow:1px 0px 10px #9E9E9E;
-  text-align: center;
+text-align: center;
+margin-top: 1px;
 }
 
 #magnifyingGlass{
-  float: left; 
-  left: 22px; 
-  font-size:30px; 
-  top:6px
+      float: left;
+    left: 7px;
+    font-size: 30px;
+    top: 17px;
+}
+
+
+/*map*/
+::-webkit-scrollbar { 
+    display: none; 
+}
+.tile-piece{
+  transition: .5s;
+}
+.tile-piece, .tile-piece img{
+  height: 100px;
+  width:100px;
+  display: inline-block;
+}
+#slider{
+  overflow-x:scroll;
+  overflow-y:hidden;
+  white-space: nowrap;
+  position: fixed;
+  width:100%;
+  background: white;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.43);  
+}
+#map-container{
+  padding-top: 125px;
+}
+object{
+  padding: 0 10px;
+  margin-bottom: 100px;
+}
+
+#zoom-in{
+    position: fixed;
+    right: 20px;
+    bottom: 110px;
+    font-size: 20px;
+    background: #4FC5E7;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
+    color: white;
+    padding-top: 11px;
+    transition: .3s;
+}
+#zoom-out{
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  font-size: 20px;
+  background: #4FC5E7;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
+  color: white;
+  padding-top: 11px;
+  transition: .3s;
+}
+
+.faded{
+  -webkit-opacity: .2;
+}
+#piece-title{
+  -webkit-opacity: 0;
+  transition: .5s;
+  position: fixed;
+  top: 125px;
+  padding: 5px 20px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.58);
+  color: white;
+  letter-spacing: 1px;
+  text-align: center;
+}
+#piece-next,#piece-prev{
+  position: fixed;
+  top: 130px;
+  font-size: 40px;
+  z-index: 9999;
+  color: white;
+  -webkit-opacity:0;
+  transition: .5s;
+}
+#piece-next{
+  right:15px;
+width: 0; 
+height: 0; 
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-left: 20px solid white;
+}
+#piece-prev{
+  left: 15px;
+width: 0; 
+height: 0; 
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent; 
+border-right:20px solid white; 
+}
+
+
+.found{
+  fill: red;
+  transition: 1s;
+}
+.normal{
+  fill: #4FC5E7;
+  transition: 1s;
+}
+
+
+#tray{
+  width: 100%;
+  position: fixed;
+  bottom: -42%;
+  left: 0;
+  height: 40%;
+  background: #f7f7f7;
+  text-align: center;
+  overflow: hidden;  
+  transition: .3s;
+  padding-top: 20px;
+}
+
+#tray-close-btn{
+  box-shadow: 0 0 2px #676767;
+  padding: 5px 0;
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index: 10;
+  bottom: 0;
+  text-align: center;
+  transition: .3s;
+}
+
+.tray-item{
+ width: 100%;
+ border-bottom: 1px solid #b5b5b5;
+ padding:10px;
+}
+
+.tray-item a img{
+  height: 100px;
+  width: 100px;
+}
+
+.left-align{
+  text-align: left;
+}
+
+.tray-title{
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.2em;
+}
+
+.tray-artist{
+  color: #9E9E9E;
+}
+
+
+#arrow{
+  transition: .3s;
+}
+
+/*
+for animations
+!important to override 
+the previous rules
+*/
+.tray-open{
+  bottom: 0 !important;
+  overflow-y:scroll !important;
+}
+
+.tray-btn-open{
+  bottom: 37% !important;
+}
+
+.rotate-arrow{
+  -webkit-transform: rotate(180deg);
+}
+
+.menu-padding{
+  padding-bottom: 40% !important;
+}
+
+.in-pad{
+  bottom: 54% !important;
+}
+
+.out-pad{
+  bottom: 44% !important;
 }

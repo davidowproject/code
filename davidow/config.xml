@@ -11,4 +11,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <platform name="android">
+            <preference name="Fullscreen" value="false" />
+    </platform>
 </widget>

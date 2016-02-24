@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <!--First we load the cordova script-->
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!--jquery & angular scripts are loaded before any other scripts that depend on them-->
+    <script src="js/jquery-2.1.3.js"></script>
+    <script src="js/jquery.svg.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <!--Routing and animations-->
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
+
+    <!--Our app controllers-->
+    <script src="js/app.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--touch events-->
+    <script src= "js/hammer.min.js"></script>
+
+    <!--twitter-->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="js/polyfills.js"></script> 
+
+    <!--look for beacons-->
+    <script src="js/ranging.js"></script>   
+    <script>
+        //Click events
+        $(document).ready(function(){
+            $("#hamburger").click(function(){
+                $("#side-menu").toggle();
+            })
+            $("#side-menu a").click(function(){
+                $("#side-menu").hide();
+            })
+            $(".nav-icon").click(function(){
+                $(".active-nav").removeClass("active-nav");
+                $(this).addClass("active-nav");
+            })
+        }); 
+    </script>
+
+    <!--Style Sheets-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/masterLight.css">
+    <link rel="stylesheet" href="css/stylesBlue.css">
+
+</head>
+
+<!--top bar-->
+<nav>
+    <div id="brand" class="pull-left">Davidow</div>
+    <div class="pull-right">
+        <span id="filter-icon" class="glyphicon glyphicon-filter"></span>
+        <span id="search-icon" class="glyphicon glyphicon-search"></span>
+        <span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
+    </div>
+</nav>
+
+
+<!--side menu-->
+<div id="side-menu">
+    <a href="#/tileView">Gallery</a>
+    <a href="#/map">Map</a>
+</div>
+
+<!--screens injected here-->
+<body ng-app="app">
+    <div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
+</body>
+
+</html>

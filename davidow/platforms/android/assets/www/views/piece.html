@@ -1,12 +1,15 @@
-<h1 class="header">{{currentPiece.piece_title}}</h2>
-<img id="piece" src="{{currentPiece.thumb_url[3]}}" class="image-responsive"/>
+<img id="piece" src="{{currentPiece.full_url}}" class="image-responsive"/>
 
-<div class="artInfo"><h3>{{currentPiece.piece_title}}<span ngShow="{{currentPiece.piece_year}} != ''"> ({{currentPiece.piece_year}})</span></h3>
+<div class="art-info"><h2>{{currentPiece.piece_title}}<span ngShow="{{currentPiece.piece_year}} != ''">{{currentPiece.piece_year}}</span></h2>
 <h3>{{currentPiece.artist}}</h3>
-<h3>{{currentPiece.piece_medium}}</h3>
-<hr>
-<p style="font-size:20px;">{{currentPiece.piece_prompt}}</p>
-<!--<h4>Geolocation:{{currentPiece.piece_location_geo}}</h4>
+<h5>{{currentPiece.piece_medium}}</h5>
+    <hr class="artinfo-divider">
+<h4>{{currentPiece.piece_prompt}}</h4>
+</div>
+<div class="artist-info">
+    <p><b>Collector Notes:</b> {{currentPiece.collector_notes}}</p>
+</div>
+    <!--<h4>Geolocation:{{currentPiece.piece_location_geo}}</h4>
 <h4>Local:{{currentPiece.piece_location_local}}</h4>
 <h4>Size:{{currentPiece.piece_size}}</h4>
 <h4>Description:{{currentPiece.piece_description}}</h3>
@@ -14,7 +17,7 @@
 <h4>Artist Link:{{currentPiece.artist_link}}<h4>
 <h4>Tags:{{currentPiece.tags}}</h4>-->
 <a href="https://twitter.com/share?&amp;via=UTDDavidow"><img src="img/Twitter_logo_blue.png" class="twitter"/></a>
-</div>
+
 
 
 

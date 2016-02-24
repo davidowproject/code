@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />	
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
 	<!--First we load the cordova script, then we load index to take care of initializing the estimotes-->
 	<script type="text/javascript" src="cordova.js"></script>
@@ -13,166 +13,72 @@
 
 	<!--jquery & angular scripts are loaded before any other scripts that depend on them-->
 	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/jquery.svg.min.js"></script>
 	<script src="js/angular.min.js"></script>
 
 	<!--Routing and animations-->
-	<script src="js/angular-route.min.js"></script>	
-	<script src= "js/angular-animate.min.js"></script>	
+	<script src="js/angular-route.min.js"></script>
+	<script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
 
-	<!--Angular-Isotope scripts-->
-	<script src="js/jquery.isotope.js"></script>
-	<script src="js/angular-isotope.js"></script>
-	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-	<script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
-	
 	<!--Our app controllers-->
 	<script src="js/app.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-	<!--Estimotes and touch events-->
-	<script src= "js/screen-range-beacons.js"></script>
-	<script src= "js/hammer.min.js"></script>	
-	<script src= "js/localStorage.js"></script>	
-
-	<!--angular isotope style sheets might need for testing
-	<link rel="stylesheet" href="css/isotopetest/main.css"/>
-	<link rel="stylesheet" href="css/isotopetest/style.css"/>-->
+	<!--touch events-->
+	<script src= "js/hammer.min.js"></script>
 
 	<!--twitter-->
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-	
+	<script src="js/polyfills.js"></script>	
+
+	<!--look for beacons-->
+	<script src="js/ranging.js"></script>	
 	<script>
- 	function daynightCycle(){
-      var currentTime = new Date().getHours();
-      if (9 <= currentTime&&currentTime <= 17) {
-       document.write("<link rel='stylesheet' href='css/stylesBlue.css' type='text/css'>");
-      }
-      if (9 <= currentTime&&currentTime <= 17) {
-       document.write("<link rel='stylesheet' href='css/masterLight.css' type='text/css'>");
-      }
-      if (17 <= currentTime&&currentTime <= 23) {
-       document.write("<link rel='stylesheet' href='css/stylesYellow.css' type='text/css'>");
-      }
-      if (17 <= currentTime&&currentTime <= 23) {
-       document.write("<link rel='stylesheet' href='css/master.css' type='text/css'>");
-      }
-}
-daynightCycle();
-
-		//Stylesheets on load
-		if (localStorage.onboarding == "notShown"){
-			window.location.hash = "/onBoarding"
-			localStorage.setItem("onboarding","shown");
-		}
-		/*if(localStorage.theme == "light"){
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/masterLight.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesBlue.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}else{
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/master.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-			var headID = document.getElementsByTagName("head")[0];
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = 'css/stylesYellow.css';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-		}*/
-		//Desktop testing for beacons
-		function onRange(foo)
-		{
-			$(".beacon").hide();
-			var c;
-				$.each(pieces, function(i, v){
-				if(foo == v.beaconID) c = v;
-			})
-			if(window.location.href.indexOf('explore') > -1){
-				window.location.hash = "/piece/" + c.id;
-			}else if(window.location.href.indexOf('gallery') > -1){
-				console.log($(".row:contains(" + c.piece_title + ")"));
-				$(".row:contains(" + c.piece_title + ") .beacon").show();
-			}
-		}
-		//Data setup
-		var pieces = [];
-		var data = $.ajax({
-		  dataType: "json",
-		  url: "js/data.json",
-		  success: function(){
-		  	$.each(data.responseJSON,function(){
-				//todo: add a placeholder image if there wasnt a url
-		  		if(this.piece_image != ""){
-		  			this.image_url = /http:.+?(?=.jpg)(....)/.exec(this.piece_image)[0];
-		  			this.thumb_url = this.piece_image.match(/image\d{1,2}.\d{3,4}x\d{3,4}..../g);
-		  			var currentPiece = this;
-		  			if(this.thumb_url != null){
-			  			$.each(this.thumb_url, function(i, v){
-			  				currentPiece.thumb_url[i] =  /http:.+?(?=.image\d{1,2})/.exec(currentPiece.image_url)[0] + "/" + currentPiece.thumb_url[i];
-			  			})
-		  			}
-		  		}else{
-		  			this.piece_image == "";
-		  			this.thumb_url == "";
-		  		}
-		  		pieces.push(this);
-		  	})
-		  }
-		});
-		//Click and swipe events
+		//Click events
 		$(document).ready(function(){
-			var h = $("html")[0];
-			var close = Hammer(h,{threshold: 4, velocity:.1}).on("swipeleft", function() {
-	   			$("#dropdown-menu").show();
-			});
-			var open = Hammer(h,{threshold: 4, velocity:.1}).on("swiperight", function() {
-	   			$("#dropdown-menu").hide();
-			});
-			$("#dropdown-menu a").click(function(){$("#dropdown-menu").hide()});
-			$("#close-btn").click(function(){$("#dropdown-menu").hide()});
-			$("#menu-btn").click(function(){$("#dropdown-menu").show()});
-
-		});
-
+			$("#hamburger").click(function(){
+				$("#side-menu").toggle();
+			})
+			$("#side-menu a").click(function(){
+				$("#side-menu").hide();
+			})
+			$(".nav-icon").click(function(){
+				$(".active-nav").removeClass("active-nav");
+				$(this).addClass("active-nav");
+			})
+		});	
 	</script>
+
 	<!--Style Sheets-->
-	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
-	<!--<link rel="stylesheet" href="css/master.css">
-	<link rel="stylesheet" href="css/stylesBlue.css">-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/masterLight.css">
+    <link rel="stylesheet" href="css/stylesBlue.css">
 </head>
-<body ng-app="app">
-	<div id="dropdown-menu" class="accelerate">
-		<h2><a href="#/explore">EXPLORE</a></h2>
-		<h2><a href="#/gallery">LIST VIEW</a></h2>
-		<h2><a href="#/tileView">TILE VIEW</a></h2>
-		<h2><a href="#/tutorial">TUTORIAL</a></h2>
-		<h2><a href="#/settings">SETTINGS</a></h2>
-		<h2><a href="#/about">ABOUT</a></h2>
-		<div id="close-btn">
-		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-		</div>
-	</div>
-	<div ng-view id="view-container" class="center"></div>
-	<div id="bottom-notification">
-	</div>
-</body>
-<div id="menu-btn">
-	<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+
+<div id="found-beacons">
+	
 </div>
+
+<!--top bar-->
+<nav>
+	<div id="brand" class="pull-left">Davidow</div>
+	<div class="pull-right">
+		<span id="filter-icon" class="glyphicon glyphicon-filter"></span>
+		<span id="search-icon" class="glyphicon glyphicon-search"></span>
+		<span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
+	</div>
+</nav>
+
+
+<!--side menu-->
+<div id="side-menu">
+    <a href="#/tileView">Gallery</a>
+    <a href="#/map">Map</a>
+</div>
+
+<!--screens injected here-->
+<body ng-app="app">
+	<div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
+</body>
 </html>

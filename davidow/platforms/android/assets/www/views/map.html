@@ -1,1 +1,42 @@
-<h1 class="header">MAP</h2>
+<style>
+	body{
+		padding-bottom: 40px;
+	}
+</style>
+
+<!--Slider
+<div id="slider">
+	<div class="tile-piece" ng-repeat="piece in pieces | orderBy : floor">
+		<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
+	</div>
+</div>
+<div id="piece-title"></div>
+<div id="piece-next"></div>
+<div id="piece-prev"></div>
+-->
+
+<!--zoom-->
+<div id="zoom-in">+</div>
+<div id="zoom-out">-</div>
+
+<!--map-->
+
+<object id="svgload"></object>
+
+<!--tray-->
+<div id="tray-close-btn">
+	<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
+</div>
+<div id="tray">
+	<div class="tray-item" ng-repeat="piece in pieces | orderBy : floor">
+		<div class="row">
+			<div class="col-xs-4">
+				<a href="#/piece/{{piece.id}}"><img src="{{piece.thumb_url}}" /></a>
+			</div>
+			<div class="col-xs-8 left-align">
+				<div class="tray-title">{{piece.piece_title}}</div>
+				<div class="tray-artist">{{piece.artist}}</div>
+			</div>
+		</div>
+	</div>
+</div>
