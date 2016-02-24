@@ -46,6 +46,9 @@
                 $(".active-nav").removeClass("active-nav");
                 $(this).addClass("active-nav");
             })
+            $("#back").click(function(){
+                window.history.back()
+            })
         }); 
     </script>
 
@@ -59,9 +62,11 @@
 
 <!--top bar-->
 <nav>
-    <div id="brand" class="pull-left">Davidow</div>
+    <div id="brand" class="pull-left">
+        <span id="back" class="glyphicon glyphicon-arrow-left" style='margin:0; margin-right: 15px;'></span>
+        Davidow
+    </div>
     <div class="pull-right">
-        <span id="filter-icon" class="glyphicon glyphicon-filter"></span>
         <span id="search-icon" class="glyphicon glyphicon-search"></span>
         <span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
     </div>
