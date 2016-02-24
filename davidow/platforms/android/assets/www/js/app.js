@@ -91,7 +91,7 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 
 
 	$("#search-icon").click(function(){
-		$("#search-container").toggle();
+		$("#search-container").slideToggle(200);
   		$("#search-icon").toggleClass("rotate");
 	})
 
@@ -278,7 +278,14 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
         settings: {}}
     );  
 
-    initHammer();
+    $("#tray-close-btn").click(function(){
+    	$("#tray").toggleClass("tray-open")
+    	$("#arrow").toggleClass("rotate-arrow")
+    	$("body").toggleClass("menu-padding")
+    	$("#zoom-in").toggleClass("in-pad")
+    	$("#zoom-out").toggleClass("out-pad")
+    	$("#tray-close-btn").toggleClass("tray-btn-open")
+    })
 
     setTimeout(function(){
 		$("svg").attr("width","900px").attr("height","1400px")

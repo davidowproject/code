@@ -25,89 +25,17 @@
 	<script src="js/app.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-	<!--Estimotes and touch events-->
-	<script src= "js/screen-range-beacons.js"></script>
+	<!--touch events-->
 	<script src= "js/hammer.min.js"></script>
 
 	<!--twitter-->
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	<script src="js/polyfills.js"></script>	
 
-	<!--desktop testing-->
+	<!--look for beacons-->
+	<script src="js/ranging.js"></script>	
 	<script>
-		//Desktop testing for beacons
-        
-		var activeBeacons = [];
-		var activePosition = 0;
-		var aniLoop1 = 0;
-		var aniLoop2 = 0;
-        
-        function onRange(beacons)
-		{
-			//set stuff up
-			activeBeacons = [];
-			activePosition = 0;
-			if(beacons.length != 0){
-				$("#slider").css("overflow-x","hidden");
-			}else{
-				$(".tile-piece").removeClass("faded");
-				$("#slider").css("overflow-x","scroll");
-				$("#piece-title").css('-webkit-opacity', '0').html("");
-				$("#piece-prev").css('-webkit-opacity', '0');
-				$("#piece-next").css('-webkit-opacity', '0');
-			}
-
-			//compose list of active beacons for cycling
-			$.each(beacons, function(beaconNumber,beaconID){
-				$(".beacon").hide();
-				var c;
-				var pos;
-				$.each(pieces, function(i, v){
-					if(beaconID == v.beaconID){
-						activeBeacons.push({piece: v, position: i})
-					} 
-				})
-			})
-
-			//set slider to first beacon
-			activePosition = 0;
-			$("#slider").animate({scrollLeft: 125 * activeBeacons[0].position - 125}, 400);
-			setTimeout(function(){
-				$(".tile-piece").addClass("faded");
-				$($(".tile-piece")[activeBeacons[0].position]).removeClass("faded");
-				$("#piece-title").css('-webkit-opacity', '1').html(activeBeacons[0].piece.piece_title);
-				$("#piece-prev").css('-webkit-opacity', '1');
-				$("#piece-next").css('-webkit-opacity', '1');
-			}, 400);
-
-			//highlight a dot on the map
-			$.each(activeBeacons, function(i,v){
-				if(v.piece.beaconID == "1002" && aniLoop1 == 0){
-					aniLoop1 = setInterval(function(){
-						if($($("#Artworks circle")[0]).attr("class").indexOf("found") == 0){
-							$($("#Artworks circle")[0]).attr("class","normal")
-						}else{
-							$($("#Artworks circle")[0]).attr("class","found")
-						}
-						
-					},1000)
-				}
-				if(v.piece.beaconID == "1003" && aniLoop2 == 0){
-					aniLoop2 = setInterval(function(){
-						if($($("#Artworks circle")[1]).attr("class").indexOf("found") == 0){
-							$($("#Artworks circle")[1]).attr("class","normal")
-						}else{
-							$($("#Artworks circle")[1]).attr("class","found")
-						}
-						
-					},1000)
-				}
-			})
-
-		}
-	
-
-		//Click and swipe events
+		//Click events
 		$(document).ready(function(){
 			$("#hamburger").click(function(){
 				$("#side-menu").toggle();
@@ -128,6 +56,10 @@
     <link rel="stylesheet" href="css/stylesBlue.css">
 </head>
 
+<div id="found-beacons">
+	
+</div>
+
 <!--top bar-->
 <nav>
 	<div id="brand" class="pull-left">Davidow</div>
@@ -137,6 +69,7 @@
 		<span id="hamburger" class="glyphicon glyphicon-menu-hamburger"></span>
 	</div>
 </nav>
+
 
 <!--side menu-->
 <div id="side-menu">
@@ -148,5 +81,4 @@
 <body ng-app="app">
 	<div ng-view id="view-container" class="center" style="padding-top:48px;"></div>
 </body>
-
 </html>

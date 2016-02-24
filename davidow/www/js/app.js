@@ -173,7 +173,6 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
 }]);
 
 app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope, $location, $log, $filter){
-
 	window.scope = $scope;
 	$scope.url = [];
 	for(var i = 0; i < pieces.length; i++){
@@ -277,6 +276,15 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
             },
         settings: {}}
     );  
+
+    $("#tray-close-btn").click(function(){
+    	$("#tray").toggleClass("tray-open")
+    	$("#arrow").toggleClass("rotate-arrow")
+    	$("body").toggleClass("menu-padding")
+    	$("#zoom-in").toggleClass("in-pad")
+    	$("#zoom-out").toggleClass("out-pad")
+    	$("#tray-close-btn").toggleClass("tray-btn-open")
+    })
 
     setTimeout(function(){
 		$("svg").attr("width","900px").attr("height","1400px")
