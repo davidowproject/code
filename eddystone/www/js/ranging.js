@@ -76,7 +76,7 @@ var hideBeacon = function(id){
 	$.each(pieces, function(i,v){
 		if(v.beacon_id == id){
 			$("#"+v.id).parent().fadeOut()
-			$($("#Artworks circle")[1]).css({"fill":"#4FC5E7"})
+			$($("#Artworks circle")[v.map_circle]).css({"fill":"#4FC5E7"})
 		}
 	})
 }
@@ -84,7 +84,7 @@ var showBeacon = function(id){
 	$.each(pieces, function(i,v){
 		if(v.beacon_id == id && id != 0){
 			$("#"+v.id).parent().fadeIn()
-			$($("#Artworks circle")[1]).css({"fill":"red"})
+			$($("#Artworks circle")[v.map_circle]).css({"fill":"red"})
 		}
 	})
 }

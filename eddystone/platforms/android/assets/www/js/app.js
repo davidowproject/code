@@ -265,7 +265,7 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 		}
 	})
 
-	$($("#Artworks circle")[0]).css("fill","red")
+	//$($("#Artworks circle")[0]).css("fill","red")
 
 	/*svg*/
     $("#svgload").svg({
