@@ -71,6 +71,11 @@ var onRange = function(foundBeacons){
 		$(".tray-item").fadeOut()
 		shownBeacons = []
 	}
+	if(shownBeacons.length == 0){
+		$("#not-found").show()
+	}else{
+		$("#not-found").hide()
+	}
 }
 var hideBeacon = function(id){
 	$.each(pieces, function(i,v){

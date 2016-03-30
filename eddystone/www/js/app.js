@@ -31,9 +31,18 @@ app.config(function($routeProvider){
 		controller: 'piece'
 
 	})
+
+	.when('/about', {
+
+		templateUrl: './views/about.html',
+		controller: 'mainController'
+
+	})
 });
 
 app.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
+
+	$("#search-icon").hide()
 
 }]);
 
@@ -90,10 +99,13 @@ app.controller('tileView', ['$scope', '$location', '$log', '$filter', function($
   	})
 
 
-	$("#search-icon").click(function(){
-		$("#search-container").slideToggle(200);
-  		$("#search-icon").toggleClass("rotate");
-	})
+	if(!eventSet){
+		$("#search-icon").click(function(){
+			$("#search-container").slideToggle(200);
+	  		$("#search-icon").toggleClass("rotate");
+		})
+		eventSet = 1
+	}
 
 
 	$("body").scrollLeft(0)
@@ -183,7 +195,6 @@ app.controller('map', ['$scope', '$location', '$log', '$filter', function($scope
 	window.baseWidth = $("object").outerWidth()
 
 	$("#search-icon").hide()
-	$("#filter-icon").hide()
 
 	/*cycle through active pieces*/
 	$("#piece-next").click(function(){

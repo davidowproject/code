@@ -28,6 +28,7 @@
 	<span id="arrow" class="glyphicon glyphicon-chevron-up"></span>
 </div>
 <div id="tray">
+	<center id="not-found"><em>No pieces found.</em></center>
 	<div class="tray-item" ng-repeat="piece in pieces | orderBy : floor">
 		<div class="row" id="{{piece.id}}">
 			<div class="col-xs-4">
